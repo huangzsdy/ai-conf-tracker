@@ -668,6 +668,6 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 **Conference Scope**: cvpr-2025
 **Discovery Mode**: strict
 
-**Last Updated**: 2026-05-08 03:20 UTC by GitHub Actions
+**Last Updated**: 2026-05-08 09:30 UTC by GitHub Actions
 
 **License**: Apache License 2.0

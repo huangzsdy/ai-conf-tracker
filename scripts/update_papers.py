@@ -784,8 +784,13 @@ def main() -> int:
     parser.add_argument(
         "--output-dir",
         type=str,
-        default=".",
-        help="Output directory for exported files (default: current directory)",
+        default="exports",
+        help="Output directory for exported files (default: exports)",
+    )
+    parser.add_argument(
+        "--by-category",
+        action="store_true",
+        help="Export each category to separate subdirectories",
     )
     args = parser.parse_args()
 
@@ -823,12 +828,32 @@ def main() -> int:
         output_dir = args.output_dir
         os.makedirs(output_dir, exist_ok=True)
 
-        if args.export in ("csv", "all"):
-            export_to_csv(papers, os.path.join(output_dir, f"{conf_name}_papers.csv"))
-        if args.export in ("bibtex", "all"):
-            export_to_bibtex(papers, os.path.join(output_dir, f"{conf_name}_papers.bib"))
-        if args.export in ("ris", "all"):
-            export_to_ris(papers, os.path.join(output_dir, f"{conf_name}_papers.ris"))
+        if args.by_category:
+            # Export each category to separate subdirectory
+            for category in CATEGORY_ORDER:
+                category_papers = [p for p in papers if category in p.get("categories", [])]
+                if not category_papers:
+                    continue
+
+                # Create category subdirectory
+                safe_name = re.sub(r'[^\w\-]', '_', category)
+                category_dir = os.path.join(output_dir, safe_name)
+                os.makedirs(category_dir, exist_ok=True)
+
+                if args.export in ("csv", "all"):
+                    export_to_csv(category_papers, os.path.join(category_dir, f"{safe_name}.csv"))
+                if args.export in ("bibtex", "all"):
+                    export_to_bibtex(category_papers, os.path.join(category_dir, f"{safe_name}.bib"))
+                if args.export in ("ris", "all"):
+                    export_to_ris(category_papers, os.path.join(category_dir, f"{safe_name}.ris"))
+        else:
+            # Single file export
+            if args.export in ("csv", "all"):
+                export_to_csv(papers, os.path.join(output_dir, f"{conf_name}_papers.csv"))
+            if args.export in ("bibtex", "all"):
+                export_to_bibtex(papers, os.path.join(output_dir, f"{conf_name}_papers.bib"))
+            if args.export in ("ris", "all"):
+                export_to_ris(papers, os.path.join(output_dir, f"{conf_name}_papers.ris"))
 
     print("[summary] Pipeline completed")
     print(f"[summary] fetched_records={stats['fetched_records']}")

@@ -357,6 +357,14 @@ python scripts/update_papers.py --conference-scope neurips-2025 --keyword "infra
 - 调整 `--mode` 从 `strict` 到 `broad` 或反之
 - 修改会议范围为特定年份
 
+**Q：HTTP 429/503 错误？**
+- arXiv API 速率限制（429）或服务不可用（503）
+- 解决方案：
+  - 使用代理：`HTTPS_PROXY=http://127.0.0.1:7890 python scripts/update_papers.py ...`
+  - 增加延迟：`--delay 10` 或 `--delay 20`
+  - 简化关键词：用 "infrared" 代替 "infrared small target detection"
+  - 等待几分钟后重试
+
 ## 分类配置
 
 爬虫会根据标题和摘要中的关键词匹配自动将论文分类到不同类别。这些类别是**在代码中预定义的**，可以进行修改。

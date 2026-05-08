@@ -310,8 +310,41 @@ exports/
 | 所有 MICCAI | `--conference-scope miccai-all-years --mode broad` |
 | ICCV 2025 | `--conference-scope iccv-2025 --mode strict` |
 | ICLR 2026 | `--conference-scope iclr-2026 --mode strict` |
-python scripts/validate_readme.py
+
+#### 代码要求选项
+
+| 参数 | 说明 | 默认值 |
+|------|------|---------|
+| `--require-code` | 只包含有代码链接的论文 | 开启（默认）|
+| `--no-require-code` | 包含所有论文（不管有没有代码）| 关闭 |
+
+```bash
+# 只包含有代码链接的论文（默认）
+python scripts/update_papers.py --keyword "infrared" --require-code
+
+# 包含所有论文（有无代码都要）
+python scripts/update_papers.py --keyword "infrared" --no-require-code
 ```
+
+#### 会议+关键词组合搜索
+
+在特定会议中搜索，并包含关键词，不创建子目录：
+
+```bash
+# NeurIPS 2025 + 关键词搜索，不分子目录
+python scripts/update_papers.py --conference-scope neurips-2025 --keyword "infrared small target detection" --export all
+
+# 输出目录: exports/neurips-2025/neurips-2025.ris
+```
+
+#### 输出目录行为
+
+| 场景 | 命令 | 输出目录 |
+|------|------|---------|
+| 会议 + 类别 | `--conference-scope cvpr-2025 --by-category` | `exports/cvpr-2025/Segmentation/` |
+| 仅关键词 | `--keyword "infrared"` | `exports/` |
+| 关键词 + 类别 | `--keyword "infrared" --by-category` | `exports/infrared/Segmentation/` |
+| 会议 + 关键词 | `--conference-scope neurips-2025 --keyword "xxx"` | `exports/neurips-2025/` |
 
 ### 常见问题解决
 

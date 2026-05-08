@@ -418,10 +418,10 @@ def build_queries(mode: str, conference_scope: str) -> List[str]:
     return [f'ti:"{conf_name_cap}"', f'abs:"{conf_name_cap}"', f'co:"{conf_name_cap}"']
 
 
-def discover_papers(mode: str, conference_scope: str, tracks: str) -> Tuple[List[Dict[str, Any]], Dict[str, int], List[str]]:
+def discover_papers(mode: str, conference_scope: str, tracks: str, require_code: bool = True) -> Tuple[List[Dict[str, Any]], Dict[str, int], List[str]]:
     print(
         "[discover] Searching arXiv "
-        f"(mode={mode}, conference_scope={conference_scope}, tracks={tracks})"
+        f"(mode={mode}, conference_scope={conference_scope}, tracks={tracks}, require_code={require_code})"
     )
 
     queries = build_queries(mode, conference_scope)
@@ -473,7 +473,7 @@ def discover_papers(mode: str, conference_scope: str, tracks: str) -> Tuple[List
                 continue
 
             links = get_repository_links(text)
-            if not links:
+            if require_code and not links:
                 stats["without_code_links"] += 1
                 continue
 
@@ -493,9 +493,9 @@ def discover_papers(mode: str, conference_scope: str, tracks: str) -> Tuple[List
     return papers, stats, failed_queries
 
 
-def discover_papers_by_keyword(keyword: str, max_results: int = 500) -> Tuple[List[Dict[str, Any]], Dict[str, int], List[str]]:
+def discover_papers_by_keyword(keyword: str, max_results: int = 500, require_code: bool = True) -> Tuple[List[Dict[str, Any]], Dict[str, int], List[str]]:
     """Discover papers by custom keyword search."""
-    print(f"[discover] Searching arXiv by keyword: {keyword}")
+    print(f"[discover] Searching arXiv by keyword: {keyword} (require_code={require_code})")
 
     client = arxiv.Client(page_size=100, delay_seconds=5, num_retries=5)
     seen_arxiv = set()
@@ -539,7 +539,7 @@ def discover_papers_by_keyword(keyword: str, max_results: int = 500) -> Tuple[Li
         text = f"{result.title}\n{result.summary}\n{comment}"
         links = get_repository_links(text)
 
-        if not links:
+        if require_code and not links:
             stats["without_code_links"] += 1
             continue
 
@@ -868,13 +868,29 @@ def main() -> int:
         default=5,
         help="Delay seconds between API requests (default: 5)",
     )
+    parser.add_argument(
+        "--require-code",
+        action="store_true",
+        default=True,
+        help="Only include papers with code links (default: True)",
+    )
+    parser.add_argument(
+        "--no-require-code",
+        action="store_false",
+        dest="require_code",
+        help="Include all papers regardless of code links",
+    )
     args = parser.parse_args()
 
-    # Validate conference scope format
-    conf_name, conf_year = parse_conference_scope(args.conference_scope)
-    if not conf_name:
-        print(f"[ERROR] Invalid conference scope: {args.conference_scope}")
-        return 1
+    # Skip conference scope validation if using keyword search
+    if args.keyword:
+        conf_name = args.keyword
+        conf_year = None
+    else:
+        conf_name, conf_year = parse_conference_scope(args.conference_scope)
+        if not conf_name:
+            print(f"[ERROR] Invalid conference scope: {args.conference_scope}")
+            return 1
 
     print(
         f"Starting Awesome {conf_name.upper()} update "
@@ -883,9 +899,9 @@ def main() -> int:
 
     # Use keyword search or conference search
     if args.keyword:
-        papers, stats, failed_queries = discover_papers_by_keyword(args.keyword)
+        papers, stats, failed_queries = discover_papers_by_keyword(args.keyword, require_code=args.require_code)
     else:
-        papers, stats, failed_queries = discover_papers(args.mode, args.conference_scope, args.tracks)
+        papers, stats, failed_queries = discover_papers(args.mode, args.conference_scope, args.tracks, require_code=args.require_code)
 
     if failed_queries:
         print("[discover] Failing update because one or more discovery queries failed:")
@@ -905,10 +921,14 @@ def main() -> int:
     # Export to Zotero-compatible formats if requested
     if args.export:
         # Determine base output directory
-        if args.keyword:
-            # Use keyword as subdirectory
+        # If using keyword without --by-category, treat like conference search (no keyword subdir)
+        if args.keyword and args.by_category:
+            # Use keyword as subdirectory only when --by-category is specified
             safe_keyword = re.sub(r'[^\w\-]', '_', args.keyword)
             output_dir = os.path.join(args.output_dir, safe_keyword)
+        elif args.keyword:
+            # Keyword search but no --by-category: use output_dir directly (like conference)
+            output_dir = args.output_dir
         else:
             conf_name, _ = parse_conference_scope(args.conference_scope)
             output_dir = os.path.join(args.output_dir, conf_name)

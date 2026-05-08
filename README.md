@@ -311,6 +311,41 @@ exports/
 | ICCV 2025 | `--conference-scope iccv-2025 --mode strict` |
 | ICLR 2026 | `--conference-scope iclr-2026 --mode strict` |
 
+#### Code Requirement Options
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `--require-code` | Only include papers with code links | Enabled (default) |
+| `--no-require-code` | Include all papers regardless of code | Disabled |
+
+```bash
+# Only papers with code links (default)
+python scripts/update_papers.py --keyword "infrared" --require-code
+
+# All papers (with or without code)
+python scripts/update_papers.py --keyword "infrared" --no-require-code
+```
+
+#### Combined Conference + Keyword Search
+
+Search within a specific conference AND keyword, without creating subdirectories:
+
+```bash
+# NeurIPS 2025 + keyword search, no subdirectories
+python scripts/update_papers.py --conference-scope neurips-2025 --keyword "infrared small target detection" --export all
+
+# Output: exports/neurips-2025/neurips-2025.ris
+```
+
+#### Output Directory Behavior
+
+| Scenario | Command | Output Directory |
+|----------|---------|-------------------|
+| Conference + category | `--conference-scope cvpr-2025 --by-category` | `exports/cvpr-2025/Segmentation/` |
+| Keyword only | `--keyword "infrared"` | `exports/` |
+| Keyword + category | `--keyword "infrared" --by-category` | `exports/infrared/Segmentation/` |
+| Conference + keyword | `--conference-scope neurips-2025 --keyword "xxx"` | `exports/neurips-2025/` |
+
 ### Common Issues and Solutions
 
 **Q: No papers found?**

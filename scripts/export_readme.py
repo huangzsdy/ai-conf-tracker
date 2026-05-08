@@ -178,9 +178,10 @@ def main():
             if filtered_papers:
                 filtered[category] = filtered_papers
         papers_by_category = filtered
-        # Use keyword as subdirectory when filtering
-        safe_keyword = re.sub(r'[^\w\-]', '_', args.keyword)
-        output_dir = os.path.join(output_dir, safe_keyword)
+        # Use keyword as subdirectory only when --by-category is specified
+        if args.by_category:
+            safe_keyword = re.sub(r'[^\w\-]', '_', args.keyword)
+            output_dir = os.path.join(output_dir, safe_keyword)
         print(f"[filter] Filtered by keyword: '{args.keyword}'")
     else:
         papers_by_category = parse_readme_by_category(readme_path)

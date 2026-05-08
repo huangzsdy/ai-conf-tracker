@@ -1,10 +1,59 @@
-# Awesome MICCAI 2026
+# Awesome AI Conference Papers
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> A curated list of MICCAI papers with public code implementations, updated automatically.
+> A generic conference paper crawler and organizer that automatically discovers papers with public code implementations from arXiv.
 
-This repository automatically discovers and organizes MICCAI papers from arXiv that include public code links. A daily bot run searches arXiv metadata, validates links and formatting, assigns categories with confidence tiers, and regenerates the list deterministically.
+**This repository automatically discovers and organizes conference papers from arXiv that include public code links.** A daily bot run searches arXiv metadata, validates links and formatting, assigns categories with confidence tiers, and regenerates the list deterministically.
+
+## Conference Scope Configuration
+
+This project is **generic** and can be configured to track any conference supported by arXiv (e.g., MICCAI, CVPR, NeurIPS, ICCV, ICLR, etc.).
+
+### Quick Start
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run with default settings (MICCAI 2026, strict mode)
+python scripts/update_papers.py
+
+# Run with different conference scope
+python scripts/update_papers.py --conference-scope cvpr-2025 --mode broad
+
+# Run with all years of a conference
+python scripts/update_papers.py --conference-scope miccai-all-years --mode broad
+```
+
+### Configuration Options
+
+| Parameter | Description | Example Values |
+|---|---|---|
+| `--conference-scope` | Conference and year to track | `miccai-2026`, `cvpr-2025`, `nips-2024`, `miccai-all-years` |
+| `--mode` | Match strictness | `strict` (exact year match), `broad` (also name match) |
+| `--tracks` | Paper tracks to include | `main`, `workshops`, `challenges`, `all` |
+
+### Conference Scope Format
+
+- **Specific year**: `{conference}-{year}` (e.g., `miccai-2026`, `cvpr-2025`)
+- **All years**: `{conference}-all-years` (e.g., `miccai-all-years`)
+
+### Examples
+
+```bash
+# Track CVPR 2025 papers (strict - requires 2025 in metadata)
+python scripts/update_papers.py --conference-scope cvpr-2025 --mode strict
+
+# Track CVPR all years (broad - any CVPR paper)
+python scripts/update_papers.py --conference-scope cvpr-all-years --mode broad
+
+# Track NeurIPS 2024 with workshops and challenges
+python scripts/update_papers.py --conference-scope nips-2024 --tracks all
+
+# Track ICLR 2026 with all tracks
+python scripts/update_papers.py --conference-scope iclr-2026 --tracks all
+```
 
 ## 📋 Table of Contents
 

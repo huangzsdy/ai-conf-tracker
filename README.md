@@ -158,6 +158,157 @@ python scripts/update_papers.py --conference-scope iclr-2026 --mode strict --tra
 - Adjust `--mode` from `strict` to `broad` or vice versa
 - Modify conference scope to specific year
 
+## Category Configuration
+
+The crawler automatically categorizes papers into different categories based on keyword matching in title and abstract. These categories are **predefined in the code** and can be modified.
+
+### Default Categories
+
+| Category | English | Chinese | Keywords |
+|---|---|---|---|
+| Segmentation | 分割 | 图像分割 | segmentation, segment, delineation, contour, mask |
+| Reconstruction | 重建 | 图像重建 | reconstruction, reconstruct, restoration, super-resolution, denoising |
+| Classification | 分类 | 分类/检测 | classification, classify, classifier, recognition, detection, diagnosis |
+| Image Registration | 图像配准 | 图像配准 | registration, alignment, deformable, deformation |
+| Domain Adaptation | 域适应 | 域适应 | domain adaptation, transfer learning, cross-domain, domain generalization |
+| Generative Models | 生成模型 | 生成模型 | generative, generation, synthesis, GAN, diffusion, VAE, autoencoder |
+| General | 通用 | 通用 | (fallback category) |
+
+### How Categorization Works
+
+1. **Keyword Matching**: Each category has predefined regex patterns with weights
+2. **Score Calculation**: Papers get scores based on keyword matches in title (2x weight) and abstract
+3. **Threshold**: Papers must exceed threshold to be assigned to a category
+4. **Multi-label**: Papers can belong to multiple categories
+5. **Fallback**: Papers with no strong match go to "General"
+
+### How to Modify Categories
+
+To customize categories, edit `scripts/update_papers.py`:
+
+#### Step 1: Modify CATEGORY_ORDER
+
+```python
+# Add, remove, or reorder categories
+CATEGORY_ORDER = [
+    "Segmentation",
+    "Reconstruction",
+    "Classification",
+    "Image Registration",
+    "Domain Adaptation",
+    "Generative Models",
+    "General",
+    # Add new category here
+]
+```
+
+#### Step 2: Modify CATEGORY_RULES
+
+```python
+# Add or modify keyword rules for each category
+CATEGORY_RULES = {
+    "Segmentation": [
+        (r"\bsegmentation\b", 3),  # (pattern, weight)
+        (r"\bsegment\b", 2),
+        # Add more patterns...
+    ],
+    # Add new category rules...
+}
+```
+
+#### Step 3: Modify CATEGORY_MARKERS
+
+```python
+# Add markers for template rendering
+CATEGORY_MARKERS = {
+    "Segmentation": "SEGMENTATION",
+    # Add new markers...
+}
+```
+
+#### Step 4: Modify CATEGORY_THRESHOLDS
+
+```python
+# Adjust threshold for each category
+CATEGORY_THRESHOLDS = {
+    "Segmentation": 2,
+    # Adjust thresholds...
+}
+```
+
+#### Step 5: Update README.md Template
+
+Add category sections in README.md:
+
+```markdown
+## Category Name
+
+*This list is automatically generated.*
+
+<!-- BEGIN CATEGORY_MARKER_PAPERS -->
+*(papers will be inserted here by crawler)*
+<!-- END CATEGORY_MARKER_PAPERS -->
+```
+
+### Category Customization Example
+
+**Example: Add "Object Detection" as a new category**
+
+1. Add to CATEGORY_ORDER:
+```python
+CATEGORY_ORDER = [
+    "Segmentation",
+    "Object Detection",  # NEW
+    "Reconstruction",
+    ...
+]
+```
+
+2. Add to CATEGORY_RULES:
+```python
+CATEGORY_RULES = {
+    "Object Detection": [
+        (r"\bobject detection\b", 3),
+        (r"\bdetection\b", 2),
+        (r"\bdetector\b", 2),
+    ],
+    ...
+}
+```
+
+3. Add to CATEGORY_MARKERS:
+```python
+CATEGORY_MARKERS = {
+    "Object Detection": "OBJECT_DETECTION",
+    ...
+}
+```
+
+4. Add section to README.md:
+```markdown
+## Object Detection
+
+<!-- BEGIN OBJECT_DETECTION_PAPERS -->
+*Papers will be inserted here*
+<!-- END OBJECT_DETECTION_PAPERS -->
+```
+
+### Language-Specific Customization
+
+For different conferences, you may want to add language-specific keywords:
+
+```python
+CATEGORY_RULES = {
+    "Classification": [
+        (r"\bclassification\b", 3),
+        (r"\bdetection\b", 2),
+        # Add non-English keywords for medical conferences
+        (r"\b诊断\b", 3),  # Chinese: diagnosis
+        (r"\b分類\b", 3),  # Traditional Chinese: classification
+    ],
+}
+```
+
 ## 📋 Table of Contents
 
 - [How to Contribute](#how-to-contribute)

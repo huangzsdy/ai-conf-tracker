@@ -158,6 +158,157 @@ python scripts/update_papers.py --conference-scope iclr-2026 --mode strict --tra
 - 调整 `--mode` 从 `strict` 到 `broad` 或反之
 - 修改会议范围为特定年份
 
+## 分类配置
+
+爬虫会根据标题和摘要中的关键词匹配自动将论文分类到不同类别。这些类别是**在代码中预定义的**，可以进行修改。
+
+### 默认分类
+
+| 分类 | 中文名称 | 英文名称 | 关键词 |
+|---|---|---|---|
+| Segmentation | 图像分割 | Segmentation | segmentation, segment, delineation, contour, mask |
+| Reconstruction | 图像重建 | Reconstruction | reconstruction, reconstruct, restoration, super-resolution, denoising |
+| Classification | 分类/检测 | Classification | classification, classify, classifier, recognition, detection, diagnosis |
+| Image Registration | 图像配准 | Image Registration | registration, alignment, deformable, deformation |
+| Domain Adaptation | 域适应 | Domain Adaptation | domain adaptation, transfer learning, cross-domain, domain generalization |
+| Generative Models | 生成模型 | Generative Models | generative, generation, synthesis, GAN, diffusion, VAE, autoencoder |
+| General | 通用 | General | （后备类别） |
+
+### 分类工作原理
+
+1. **关键词匹配**：每个类别都有预定义的正则表达式模式及权重
+2. **分数计算**：根据标题中的关键词（2倍权重）和摘要中的关键词为论文打分
+3. **阈值**：论文必须超过阈值才能分配到某个类别
+4. **多标签**：论文可以属于多个类别
+5. **后备**：没有强匹配的论文归入"通用"类别
+
+### 如何修改分类
+
+要自定义分类，请编辑 `scripts/update_papers.py`：
+
+#### 步骤 1：修改 CATEGORY_ORDER
+
+```python
+# 添加、删除或重新排序分类
+CATEGORY_ORDER = [
+    "Segmentation",
+    "Reconstruction",
+    "Classification",
+    "Image Registration",
+    "Domain Adaptation",
+    "Generative Models",
+    "General",
+    # 在这里添加新分类
+]
+```
+
+#### 步骤 2：修改 CATEGORY_RULES
+
+```python
+# 为每个分类添加或修改关键词规则
+CATEGORY_RULES = {
+    "Segmentation": [
+        (r"\bsegmentation\b", 3),  # (模式, 权重)
+        (r"\bsegment\b", 2),
+        # 添加更多模式...
+    ],
+    # 添加新分类的规则...
+}
+```
+
+#### 步骤 3：修改 CATEGORY_MARKERS
+
+```python
+# 添加模板渲染的标记
+CATEGORY_MARKERS = {
+    "Segmentation": "SEGMENTATION",
+    # 添加新标记...
+}
+```
+
+#### 步骤 4：修改 CATEGORY_THRESHOLDS
+
+```python
+# 调整每个分类的阈值
+CATEGORY_THRESHOLDS = {
+    "Segmentation": 2,
+    # 调整阈值...
+}
+```
+
+#### 步骤 5：更新 README.md 模板
+
+在 README.md 中添加分类部分：
+
+```markdown
+## 分类名称
+
+*此列表是自动生成的。*
+
+<!-- BEGIN 分类标记_PAPERS -->
+*（论文将被插入到这里）*
+<!-- END 分类标记_PAPERS -->
+```
+
+### 分类自定义示例
+
+**示例：添加"目标检测"作为新分类**
+
+1. 添加到 CATEGORY_ORDER：
+```python
+CATEGORY_ORDER = [
+    "Segmentation",
+    "目标检测",  # 新增
+    "Reconstruction",
+    ...
+]
+```
+
+2. 添加到 CATEGORY_RULES：
+```python
+CATEGORY_RULES = {
+    "目标检测": [
+        (r"\bobject detection\b", 3),
+        (r"\bdetection\b", 2),
+        (r"\bdetector\b", 2),
+    ],
+    ...
+}
+```
+
+3. 添加到 CATEGORY_MARKERS：
+```python
+CATEGORY_MARKERS = {
+    "目标检测": "OBJECT_DETECTION",
+    ...
+}
+```
+
+4. 在 README.md 中添加部分：
+```markdown
+## 目标检测
+
+<!-- BEGIN OBJECT_DETECTION_PAPERS -->
+*论文将被插入到这里*
+<!-- END OBJECT_DETECTION_PAPERS -->
+```
+
+### 语言特定的自定义
+
+对于不同的会议，你可能需要添加特定语言的关键词：
+
+```python
+CATEGORY_RULES = {
+    "Classification": [
+        (r"\bclassification\b", 3),
+        (r"\bdetection\b", 2),
+        # 为医学会议添加非英语关键词
+        (r"\b诊断\b", 3),  # 中文：诊断
+        (r"\b分类\b", 3),  # 简体中文：分类
+    ],
+}
+```
+
 ## 目录
 
 - [如何贡献](#如何贡献)

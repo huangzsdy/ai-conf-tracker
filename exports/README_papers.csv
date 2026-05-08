@@ -1,0 +1,133 @@
+Title,Url,Code Link,Confidence,Year
+Blind Bitstream-corrupted Video Recovery via Metadata-guided Diffusion Model,https://arxiv.org/abs/2604.13906v1,https://github.com/shuyun-wang/m-gdm,medium,2604
+Medal S: Spatio-Textual Prompt Model for Medical Segmentation,https://arxiv.org/abs/2511.13001v1,https://github.com/yinghemedical/medal-s,high,2511
+MR6D: Benchmarking 6D Pose Estimation for Mobile Robots,https://arxiv.org/abs/2508.13775v1,https://huggingface.co/datasets/anas-gouda,medium,2508
+SIS-Challenge: Event-based Spatio-temporal Instance Segmentation Challenge at the CVPR 2025 Event-based Vision Workshop,https://arxiv.org/abs/2508.12813v1,https://github.com/tub-rip/mousesis,high,2508
+Rethinking Query-based Transformer for Continual Image Segmentation,https://arxiv.org/abs/2507.07831v1,https://github.com/soolab/simcis,high,2507
+Revisiting Audio-Visual Segmentation with Vision-Centric Transformer,https://arxiv.org/abs/2506.23623v1,https://github.com/spyflying/vct_avs,high,2506
+Relation3D: Enhancing Relation Modeling for Point Cloud Instance Segmentation,https://arxiv.org/abs/2506.17891v1,https://github.com/howard-coder191/relation3d,high,2506
+ScaleLSD: Scalable Deep Line Segment Detection Streamlined,https://arxiv.org/abs/2506.09369v1,https://github.com/ant-research/scalelsd,high,2506
+FreeGave: 3D Physics Learning from Dynamic Videos by Gaussian Velocity,https://arxiv.org/abs/2506.07865v1,https://github.com/vlar-group/freegave,medium,2506
+LogoSP: Local-global Grouping of Superpoints for Unsupervised Semantic Segmentation of 3D Point Clouds,https://arxiv.org/abs/2506.07857v1,https://github.com/vlar-group/logosp,high,2506
+DeformCL: Learning Deformable Centerline Representation for Vessel Extraction in 3D Medical Image,https://arxiv.org/abs/2506.05820v1,https://github.com/barry664/deformcl,high,2506
+OV-COAST: Cost Aggregation with Optimal Transport for Open-Vocabulary Semantic Segmentation,https://arxiv.org/abs/2506.03706v1,https://github.com/adityagandhamal/ov-coast,high,2506
+Attacking Attention of Foundation Models Disrupts Downstream Tasks,https://arxiv.org/abs/2506.05394v3,https://github.com/hondamunigeprasannasilva/attack-attention,medium,2506
+SAM-I2V: Upgrading SAM to Support Promptable Video Segmentation with Less than 0.2% Training Cost,https://arxiv.org/abs/2506.01304v1,https://github.com/showlab/sam-i2v,high,2506
+Perceptual Inductive Bias Is What You Need Before Contrastive Learning,https://arxiv.org/abs/2506.01201v2,https://github.com/juz031/midvcl,medium,2506
+Synthetic Generation and Latent Projection Denoising of Rim Lesions in Multiple Sclerosis,https://arxiv.org/abs/2505.23353v1,https://github.com/agr78/prlx-gan,medium,2505
+Universal Domain Adaptation for Semantic Segmentation,https://arxiv.org/abs/2505.22458v2,https://github.com/ku-vgi/unimap,high,2505
+Sketchy Bounding-box Supervision for 3D Instance Segmentation,https://arxiv.org/abs/2505.16399v1,https://github.com/dengq7/sketchy-3dis,high,2505
+DiGIT: Multi-Dilated Gated Encoder and Central-Adjacent Region Integrated Decoder for Temporal Action Detection Transformer,https://arxiv.org/abs/2505.05711v1,https://github.com/dotori-hj/digit,medium,2505
+Are Synthetic Corruptions A Reliable Proxy For Real-World Corruptions?,https://arxiv.org/abs/2505.04835v1,https://github.com/shashankskagnihotri/benchmarking_robustness,medium,2505
+Bounding Box-Guided Diffusion for Synthesizing Industrial Images and Segmentation Map,https://arxiv.org/abs/2505.03623v2,https://github.com/covisionlab/diffusion_labeling,high,2505
+Advancing Generalizable Tumor Segmentation with Anomaly-Aware Open-Vocabulary Attention Maps and Frozen Foundation Diffusion Models,https://arxiv.org/abs/2505.02753v1,https://github.com/yankai96/diffugts,high,2505
+CAV-MAE Sync: Improving Contrastive Audio-Visual Mask Autoencoders via Fine-Grained Alignment,https://arxiv.org/abs/2505.01237v2,https://github.com/edsonroteia/cav-mae-sync,medium,2505
+ReferDINO-Plus: 2nd Solution for 4th PVUW MeViS Challenge at CVPR 2025,https://arxiv.org/abs/2503.23509v2,https://github.com/isee-laboratory/referdino-plus,high,2503
+Realizing Immersive Volumetric Video: A Multimodal Framework for 6-DoF VR Engagement,https://arxiv.org/abs/2604.09473v1,https://github.com/metaverse-ai-lab-thu/imvid,medium,2604
+FIMA-Q: Post-Training Quantization for Vision Transformers by Fisher Information Matrix Approximation,https://arxiv.org/abs/2506.11543v1,https://github.com/shihewang/fima-q,medium,2506
+Gradient Inversion Attacks on Parameter-Efficient Fine-Tuning,https://arxiv.org/abs/2506.04453v1,https://github.com/info-ucr/peftleak,medium,2506
+Towards In-the-wild 3D Plane Reconstruction from a Single Image,https://arxiv.org/abs/2506.02493v1,https://github.com/jcliu0428/zeroplane,high,2506
+Synthetic Generation and Latent Projection Denoising of Rim Lesions in Multiple Sclerosis,https://arxiv.org/abs/2505.23353v1,https://github.com/agr78/prlx-gan,high,2505
+Proximal Algorithm Unrolling: Flexible and Efficient Reconstruction Networks for Single-Pixel Imaging,https://arxiv.org/abs/2505.23180v1,https://github.com/pwangcs/proxunroll,high,2505
+GoLF-NRT: Integrating Global Context and Local Geometry for Few-Shot View Synthesis,https://arxiv.org/abs/2505.19813v1,https://github.com/klmav-cuc/golf-nrt,medium,2505
+Depth-Guided Bundle Sampling for Efficient Generalizable Neural Radiance Field Reconstruction,https://arxiv.org/abs/2505.19793v1,https://github.com/klmav-cuc/gdb-nerf,high,2505
+Degradation-Aware Feature Perturbation for All-in-One Image Restoration,https://arxiv.org/abs/2505.12630v1,https://github.com/txphome/dfpir,high,2505
+"EvEnhancer: Empowering Effectiveness, Efficiency and Generalizability for Continuous Space-Time Video Super-Resolution with Events",https://arxiv.org/abs/2505.04657v1,https://github.com/w-shuoyan/evenhancer,high,2505
+CAV-MAE Sync: Improving Contrastive Audio-Visual Mask Autoencoders via Fine-Grained Alignment,https://arxiv.org/abs/2505.01237v2,https://github.com/edsonroteia/cav-mae-sync,medium,2505
+NTIRE 2025 Challenge on Image Super-Resolution ($	imes$4): Methods and Results,https://arxiv.org/abs/2504.14582v2,https://github.com/zhengchen1999/ntire2025_imagesr_x4,high,2504
+Let Samples Speak: Mitigating Spurious Correlation by Exploiting the Clusterness of Samples,https://arxiv.org/abs/2512.22874v1,https://github.com/davelee-uestc/nsf_debiasing,medium,2512
+OmniTrack++: Omnidirectional Multi-Object Tracking by Learning Large-FoV Trajectory Feedback,https://arxiv.org/abs/2511.00510v2,https://github.com/xifen523/omnitrack,medium,2511
+Domain-Adaptive Pretraining Improves Primate Behavior Recognition,https://arxiv.org/abs/2509.12193v1,https://github.com/ecker-lab/dap-behavior,high,2509
+CryptoFace: End-to-End Encrypted Face Recognition,https://arxiv.org/abs/2509.00332v1,https://github.com/human-analysis/cryptoface,high,2509
+MedErr-CT: A Visual Question Answering Benchmark for Identifying and Correcting Errors in CT Reports,https://arxiv.org/abs/2506.19217v1,https://github.com/babbu3682/mederr-ct,high,2506
+SmartHome-Bench: A Comprehensive Benchmark for Video Anomaly Detection in Smart Homes Using Multi-Modal Large Language Models,https://arxiv.org/abs/2506.12992v1,https://github.com/xinyi-0724/smarthome-bench-llm,high,2506
+DejaVid: Encoder-Agnostic Learned Temporal Matching for Video Classification,https://arxiv.org/abs/2506.12585v1,https://github.com/darrylho/dejavid,high,2506
+HalLoc: Token-level Localization of Hallucinations for Vision Language Models,https://arxiv.org/abs/2506.10286v1,https://github.com/dbsltm/cvpr25_halloc,medium,2506
+ScaleLSD: Scalable Deep Line Segment Detection Streamlined,https://arxiv.org/abs/2506.09369v1,https://github.com/ant-research/scalelsd,high,2506
+DeformCL: Learning Deformable Centerline Representation for Vessel Extraction in 3D Medical Image,https://arxiv.org/abs/2506.05820v1,https://github.com/barry664/deformcl,high,2506
+"Video, How Do Your Tokens Merge?",https://arxiv.org/abs/2506.03885v1,https://github.com/sjpollard/video-how-do-your-tokens-merge,medium,2506
+Attacking Attention of Foundation Models Disrupts Downstream Tasks,https://arxiv.org/abs/2506.05394v3,https://github.com/hondamunigeprasannasilva/attack-attention,medium,2506
+Technical Report for Ego4D Long-Term Action Anticipation Challenge 2025,https://arxiv.org/abs/2506.02550v2,https://github.com/corrineqiu/ego4d-lta-challenge-2025,medium,2506
+Towards In-the-wild 3D Plane Reconstruction from a Single Image,https://arxiv.org/abs/2506.02493v1,https://github.com/jcliu0428/zeroplane,high,2506
+Perceptual Inductive Bias Is What You Need Before Contrastive Learning,https://arxiv.org/abs/2506.01201v2,https://github.com/juz031/midvcl,medium,2506
+PCIE_Interaction Solution for Ego4D Social Interaction Challenge,https://arxiv.org/abs/2505.24404v1,https://github.com/kanokphanl/pcie_ego4d_social_interaction,medium,2505
+Boosting Domain Incremental Learning: Selecting the Optimal Parameters is All You Need,https://arxiv.org/abs/2505.23744v1,https://github.com/qwangcv/soyo,high,2505
+Synthetic Generation and Latent Projection Denoising of Rim Lesions in Multiple Sclerosis,https://arxiv.org/abs/2505.23353v1,https://github.com/agr78/prlx-gan,high,2505
+Point-to-Region Loss for Semi-Supervised Point-Based Crowd Counting,https://arxiv.org/abs/2505.21943v1,https://github.com/elin24/p2rloss,medium,2505
+Roboflow100-VL: A Multi-Domain Object Detection Benchmark for Vision-Language Models,https://arxiv.org/abs/2505.20612v4,https://github.com/roboflow/rf100-vl,high,2505
+PoseBH: Prototypical Multi-Dataset Training Beyond Human Pose Estimation,https://arxiv.org/abs/2505.17475v1,https://github.com/uyoung-jeong/posebh,medium,2505
+Open Set Label Shift with Test Time Out-of-Distribution Reference,https://arxiv.org/abs/2505.05868v1,https://github.com/changkunye/opensetlabelshift,medium,2505
+DiGIT: Multi-Dilated Gated Encoder and Central-Adjacent Region Integrated Decoder for Temporal Action Detection Transformer,https://arxiv.org/abs/2505.05711v1,https://github.com/dotori-hj/digit,high,2505
+CAV-MAE Sync: Improving Contrastive Audio-Visual Mask Autoencoders via Fine-Grained Alignment,https://arxiv.org/abs/2505.01237v2,https://github.com/edsonroteia/cav-mae-sync,medium,2505
+Classifier-to-Bias: Toward Unsupervised Automatic Bias Detection for Visual Classifiers,https://arxiv.org/abs/2504.20902v1,https://github.com/mardgui/c2b,high,2504
+SSL4Eco: A Global Seasonal Dataset for Geospatial Foundation Models in Ecology,https://arxiv.org/abs/2504.18256v3,https://github.com/plekhanovaelena/ssl4eco,medium,2504
+Medal S: Spatio-Textual Prompt Model for Medical Segmentation,https://arxiv.org/abs/2511.13001v1,https://github.com/yinghemedical/medal-s,medium,2511
+Rethinking Query-based Transformer for Continual Image Segmentation,https://arxiv.org/abs/2507.07831v1,https://github.com/soolab/simcis,medium,2507
+Object-aware Sound Source Localization via Audio-Visual Scene Understanding,https://arxiv.org/abs/2506.18557v2,https://github.com/visualaikhu/oa-ssl,medium,2506
+DejaVid: Encoder-Agnostic Learned Temporal Matching for Video Classification,https://arxiv.org/abs/2506.12585v1,https://github.com/darrylho/dejavid,medium,2506
+"DiscoVLA: Discrepancy Reduction in Vision, Language, and Alignment for Parameter-Efficient Video-Text Retrieval",https://arxiv.org/abs/2506.08887v1,https://github.com/lunarshen/dsicovla,high,2506
+DeformCL: Learning Deformable Centerline Representation for Vessel Extraction in 3D Medical Image,https://arxiv.org/abs/2506.05820v1,https://github.com/barry664/deformcl,high,2506
+OV-COAST: Cost Aggregation with Optimal Transport for Open-Vocabulary Semantic Segmentation,https://arxiv.org/abs/2506.03706v1,https://github.com/adityagandhamal/ov-coast,medium,2506
+Self-Supervised Spatial Correspondence Across Modalities,https://arxiv.org/abs/2506.03148v1,https://github.com/ayshrv/cmrw,medium,2506
+Diff2Flow: Training Flow Matching Models via Diffusion Model Alignment,https://arxiv.org/abs/2506.02221v1,https://github.com/compvis/diff2flow,high,2506
+Period-LLM: Extending the Periodic Capability of Multimodal Large Language Model,https://arxiv.org/abs/2505.24476v1,https://github.com/keke-nice/period-llm,medium,2505
+Roboflow100-VL: A Multi-Domain Object Detection Benchmark for Vision-Language Models,https://arxiv.org/abs/2505.20612v4,https://github.com/roboflow/rf100-vl,medium,2505
+Towards Video to Piano Music Generation with Chain-of-Perform Support Benchmarks,https://arxiv.org/abs/2505.20038v1,https://github.com/acappemin/video-to-audio-and-piano,medium,2505
+DiGIT: Multi-Dilated Gated Encoder and Central-Adjacent Region Integrated Decoder for Temporal Action Detection Transformer,https://arxiv.org/abs/2505.05711v1,https://github.com/dotori-hj/digit,medium,2505
+Object-Shot Enhanced Grounding Network for Egocentric Video,https://arxiv.org/abs/2505.04270v1,https://github.com/yisen-feng/osgnet,medium,2505
+CAV-MAE Sync: Improving Contrastive Audio-Visual Mask Autoencoders via Fine-Grained Alignment,https://arxiv.org/abs/2505.01237v2,https://github.com/edsonroteia/cav-mae-sync,high,2505
+Generalized Trajectory Scoring for End-to-end Multimodal Planning,https://arxiv.org/abs/2506.06664v1,https://github.com/nvlabs/gtrs,high,2506
+OV-COAST: Cost Aggregation with Optimal Transport for Open-Vocabulary Semantic Segmentation,https://arxiv.org/abs/2506.03706v1,https://github.com/adityagandhamal/ov-coast,high,2506
+Conformal Prediction for Zero-Shot Models,https://arxiv.org/abs/2505.24693v1,https://github.com/jusiro/clip-conformal,medium,2505
+Universal Domain Adaptation for Semantic Segmentation,https://arxiv.org/abs/2505.22458v2,https://github.com/ku-vgi/unimap,high,2505
+Point-to-Region Loss for Semi-Supervised Point-Based Crowd Counting,https://arxiv.org/abs/2505.21943v1,https://github.com/elin24/p2rloss,medium,2505
+CoDEx: Combining Domain Expertise for Spatial Generalization in Satellite Image Analysis,https://arxiv.org/abs/2504.19737v1,https://github.com/abhishek19009/codex,high,2504
+Blind Bitstream-corrupted Video Recovery via Metadata-guided Diffusion Model,https://arxiv.org/abs/2604.13906v1,https://github.com/shuyun-wang/m-gdm,high,2604
+InterAct: Advancing Large-Scale Versatile 3D Human-Object Interaction Generation,https://arxiv.org/abs/2509.09555v1,https://github.com/wzyabcas/interact,high,2509
+"A Training-Free, Task-Agnostic Framework for Enhancing MLLM Performance on High-Resolution Images",https://arxiv.org/abs/2507.10202v1,https://github.com/yenncye/ecp,medium,2507
+Rethinking Query-based Transformer for Continual Image Segmentation,https://arxiv.org/abs/2507.07831v1,https://github.com/soolab/simcis,medium,2507
+Revisiting Audio-Visual Segmentation with Vision-Centric Transformer,https://arxiv.org/abs/2506.23623v1,https://github.com/spyflying/vct_avs,medium,2506
+HalLoc: Token-level Localization of Hallucinations for Vision Language Models,https://arxiv.org/abs/2506.10286v1,https://github.com/dbsltm/cvpr25_halloc,medium,2506
+Generalized Trajectory Scoring for End-to-end Multimodal Planning,https://arxiv.org/abs/2506.06664v1,https://github.com/nvlabs/gtrs,medium,2506
+Diff2Flow: Training Flow Matching Models via Diffusion Model Alignment,https://arxiv.org/abs/2506.02221v1,https://github.com/compvis/diff2flow,high,2506
+Silence is Golden: Leveraging Adversarial Examples to Nullify Audio Control in LDM-based Talking-Head Generation,https://arxiv.org/abs/2506.01591v1,https://github.com/yuangan/silencer,high,2506
+Synthetic Generation and Latent Projection Denoising of Rim Lesions in Multiple Sclerosis,https://arxiv.org/abs/2505.23353v1,https://github.com/agr78/prlx-gan,high,2505
+Wav2Sem: Plug-and-Play Audio Semantic Decoupling for 3D Speech-Driven Facial Animation,https://arxiv.org/abs/2505.23290v1,https://github.com/wslh852/wav2sem,medium,2505
+ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval,https://arxiv.org/abs/2505.20764v1,https://github.com/mvrl/context-cir,medium,2505
+Towards Video to Piano Music Generation with Chain-of-Perform Support Benchmarks,https://arxiv.org/abs/2505.20038v1,https://github.com/acappemin/video-to-audio-and-piano,high,2505
+GoLF-NRT: Integrating Global Context and Local Geometry for Few-Shot View Synthesis,https://arxiv.org/abs/2505.19813v1,https://github.com/klmav-cuc/golf-nrt,high,2505
+Depth-Guided Bundle Sampling for Efficient Generalizable Neural Radiance Field Reconstruction,https://arxiv.org/abs/2505.19793v1,https://github.com/klmav-cuc/gdb-nerf,medium,2505
+"EvEnhancer: Empowering Effectiveness, Efficiency and Generalizability for Continuous Space-Time Video Super-Resolution with Events",https://arxiv.org/abs/2505.04657v1,https://github.com/w-shuoyan/evenhancer,medium,2505
+MeshGen: Generating PBR Textured Mesh with Render-Enhanced Auto-Encoder and Generative Data Augmentation,https://arxiv.org/abs/2505.04656v1,https://github.com/heheyas/meshgen,high,2505
+Bounding Box-Guided Diffusion for Synthesizing Industrial Images and Segmentation Map,https://arxiv.org/abs/2505.03623v2,https://github.com/covisionlab/diffusion_labeling,high,2505
+Advancing Generalizable Tumor Segmentation with Anomaly-Aware Open-Vocabulary Attention Maps and Frozen Foundation Diffusion Models,https://arxiv.org/abs/2505.02753v1,https://github.com/yankai96/diffugts,high,2505
+FreePCA: Integrating Consistency Information across Long-short Frames in Training-free Long Video Generation via Principal Component Analysis,https://arxiv.org/abs/2505.01172v1,https://github.com/josephtitan/freepca,high,2505
+Meta-Learning Hyperparameters for Parameter Efficient Fine-Tuning,https://arxiv.org/abs/2603.01759v1,https://github.com/doem97/metalora,medium,2603
+Optimizing Multimodal LLMs for Egocentric Video Understanding: A Solution for the HD-EPIC VQA Challenge,https://arxiv.org/abs/2601.10228v1,https://github.com/youngseng/egocentric-co-pilot,medium,2601
+NN-Former: Rethinking Graph Structure in Neural Architecture Representation,https://arxiv.org/abs/2507.00880v1,https://github.com/xuruihan/nnformer,medium,2507
+Instant Particle Size Distribution Measurement Using CNNs Trained on Synthetic Data,https://arxiv.org/abs/2507.00822v1,https://github.com/yasserelj/synthetic-granular-gen,medium,2507
+DIVE: Deep-search Iterative Video Exploration A Technical Report for the CVRR Challenge at CVPR 2025,https://arxiv.org/abs/2506.21891v1,https://github.com/panasonicconnect/dive,medium,2506
+Improving Personalized Search with Regularized Low-Rank Parameter Updates,https://arxiv.org/abs/2506.10182v1,https://github.com/adobe-research/polar-vl,medium,2506
+Hearing Hands: Generating Sounds from Physical Interactions in 3D Scenes,https://arxiv.org/abs/2506.09989v1,https://github.com/dou-yiming/hearing_hands,medium,2506
+UniPre3D: Unified Pre-training of 3D Point Cloud Models with Cross-Modal Gaussian Splatting,https://arxiv.org/abs/2506.09952v1,https://github.com/wangzy22/unipre3d,medium,2506
+Unleashing the Potential of Consistency Learning for Detecting and Grounding Multi-Modal Media Manipulation,https://arxiv.org/abs/2506.05890v1,https://github.com/liyih/cscl,medium,2506
+GazeNLQ @ Ego4D Natural Language Queries Challenge 2025,https://arxiv.org/abs/2506.05782v1,https://github.com/stevenlin510/gazenlq,medium,2506
+LotusFilter: Fast Diverse Nearest Neighbor Search via a Learned Cutoff Table,https://arxiv.org/abs/2506.04790v1,https://github.com/matsui528/lotf,medium,2506
+OSGNet @ Ego4D Episodic Memory Challenge 2025,https://arxiv.org/abs/2506.03710v1,https://github.com/yisen-feng/osgnet,medium,2506
+PARC: A Quantitative Framework Uncovering the Symmetries within Vision Language Models,https://arxiv.org/abs/2506.14808v1,https://github.com/nvlabs/parc,medium,2506
+RC-AutoCalib: An End-to-End Radar-Camera Automatic Calibration Network,https://arxiv.org/abs/2505.22427v1,https://github.com/nycu-acm/rc-autocalib,medium,2505
+FRAMES-VQA: Benchmarking Fine-Tuning Robustness across Multi-Modal Shifts in Visual Question Answering,https://arxiv.org/abs/2505.21755v2,https://github.com/chengyuehuang511/frames-vqa,medium,2505
+PMA: Towards Parameter-Efficient Point Cloud Understanding via Point Mamba Adapter,https://arxiv.org/abs/2505.20941v1,https://github.com/zyh16143998882/pma,medium,2505
+HCQA-1.5 @ Ego4D EgoSchema Challenge 2025,https://arxiv.org/abs/2505.20644v1,https://github.com/hyu-zhang/hcqa,medium,2505
+Four Eyes Are Better Than Two: Harnessing the Collaborative Potential of Large Models via Differentiated Thinking and Complementary Ensembles,https://arxiv.org/abs/2505.16784v2,https://github.com/xiongjunguan/egoschema-cvpr25,medium,2505
+DeCafNet: Delegate and Conquer for Efficient Temporal Grounding in Long Videos,https://arxiv.org/abs/2505.16376v1,https://github.com/zijialewislu/cvpr2025-decafnet,medium,2505
+Neural Video Compression with Context Modulation,https://arxiv.org/abs/2505.14541v1,https://github.com/austin4ustc/dcmvc,medium,2505
+Camera-Only 3D Panoptic Scene Completion for Autonomous Driving through Differentiable Object Shapes,https://arxiv.org/abs/2505.09562v1,https://github.com/nicolamarinello/offsetocc,medium,2505
+Sparse Point Cloud Patches Rendering via Splitting 2D Gaussians,https://arxiv.org/abs/2505.09413v1,https://github.com/murcherful/gaupcrender,medium,2505
+Behind Maya: Building a Multilingual Vision Language Model,https://arxiv.org/abs/2505.08910v2,https://github.com/nahidalam/maya,medium,2505
+EmoVLM-KD: Fusing Distilled Expertise with Vision-Language Models for Visual Emotion Analysis,https://arxiv.org/abs/2505.07164v1,https://github.com/sange1104/emovlm-kd,medium,2505
+DispBench: Benchmarking Disparity Estimation to Synthetic Corruptions,https://arxiv.org/abs/2505.05091v1,https://github.com/shashankskagnihotri/benchmarking_robustness,medium,2505
+Convex Relaxation for Robust Vanishing Point Estimation in Manhattan World,https://arxiv.org/abs/2505.04788v3,https://github.com/wu-cvgl/globustvp,medium,2505
+Towards Efficient Benchmarking of Foundation Models in Remote Sensing: A Capabilities Encoding Approach,https://arxiv.org/abs/2505.03299v1,https://github.com/pierreadorni/capabilities-encoding,medium,2505
+SeriesBench: A Benchmark for Narrative-Driven Drama Series Understanding,https://arxiv.org/abs/2504.21435v3,https://github.com/zackhxn/seriesbench-cvpr2025,medium,2504
+MP-SfM: Monocular Surface Priors for Robust Structure-from-Motion,https://arxiv.org/abs/2504.20040v1,https://github.com/cvg/mpsfm,medium,2504

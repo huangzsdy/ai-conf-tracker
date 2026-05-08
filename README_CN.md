@@ -34,6 +34,58 @@ python scripts/update_papers.py --conference-scope cvpr-2025 --mode broad
 python scripts/update_papers.py --conference-scope miccai-all-years --mode broad
 ```
 
+### 国内使用 / 无 VPN
+
+arXiv API 在某些地区可能访问缓慢或不可用。使用以下方法之一：
+
+#### 方法 1：设置代理环境变量
+
+```bash
+# Windows (PowerShell)
+$env:HTTPS_PROXY="http://127.0.0.1:7890"
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+python scripts/update_papers.py
+
+# Windows (CMD)
+set HTTPS_PROXY=http://127.0.0.1:7890
+set HTTP_PROXY=http://127.0.0.1:7890
+python scripts/update_papers.py
+
+# Linux/Mac
+export HTTPS_PROXY=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+python scripts/update_papers.py
+```
+
+#### 方法 2：使用代理前缀运行
+
+```bash
+HTTPS_PROXY=http://127.0.0.1:7890 python scripts/update_papers.py --conference-scope cvpr-2025
+```
+
+#### 方法 3：编辑配置文件
+
+在项目根目录创建 `.env` 文件：
+
+```
+HTTPS_PROXY=http://127.0.0.1:7890
+HTTP_PROXY=http://127.0.0.1:7890
+```
+
+然后运行：
+```bash
+pip install python-dotenv
+python scripts/update_papers.py
+```
+
+**常用代理端口：**
+- V2Ray: 7890, 1080
+- Shadowsocks: 1080, 10808
+- Clash: 7890, 8080
+- SSH Tunnel: 1081
+
+**注意：** 如果不需要代理，直接运行即可，不设置环境变量。
+
 ### 配置参数
 
 | 参数 | 说明 | 示例值 |
@@ -146,6 +198,57 @@ python scripts/update_papers.py --conference-scope iclr-2026 --mode strict --tra
 3. **验证**：检查有效的代码链接（GitHub/GitLab/Hugging Face）
 4. **分类**：分配到类别（分割、重建、分类等）
 5. **生成**：生成带论文列表的 README.md
+
+### 代码结构
+
+项目包含三个主要 Python 脚本，位于 `scripts/` 目录：
+
+| 脚本 | 用途 | 关键函数 |
+|------|-----|---------|
+| `update_papers.py` | 主爬虫 - 发现、过滤、验证、分类论文 | `discover_papers()`, `validate_papers_data()`, `categorize_papers()`, `update_readme()`, `export_to_csv()` |
+| `export_readme.py` | 导出现有数据为 Zotero 格式 | `parse_readme_papers()`, `export_csv()`, `export_bibtex()`, `export_ris()` |
+| `validate_readme.py` | 验证 README 格式和检查错误 | 验证标记、URL、重复项 |
+
+#### `update_papers.py` - 主爬虫
+
+核心五阶段管道：
+
+```
+1. discover_papers()      → 从 arXiv API 获取论文
+2. validate_papers_data() → 清理链接、去除重复
+3. categorize_papers()   → 通过关键词匹配分配类别
+4. update_readme()       → 写入 README.md 分类块
+5. export_to_csv/bibtex/ris() → 可选：导出为 Zotero 格式
+```
+
+关键配置变量（文件顶部）：
+- `CATEGORY_ORDER` - 按显示顺序的类别名称列表
+- `CATEGORY_RULES` - 每个类别的关键词和权重
+- `CATEGORY_MARKERS` - README 块的 HTML 标记
+- `ALLOWED_CODE_HOSTS` - 支持的代码平台（GitHub、GitLab、HuggingFace）
+
+#### `export_readme.py` - Zotero 导出工具
+
+解析现有 README.md 并导出为 Zotero 兼容格式：
+- `README_papers.csv` - 直接导入
+- `README_papers.bib` - BibTeX 格式
+- `README_papers.ris` - RIS 格式（Zotero 原生支持）
+
+#### 运行脚本
+
+```bash
+# 安装依赖
+pip install -r requirements.txt
+
+# 运行主爬虫（发现新论文）
+python scripts/update_papers.py --conference-scope cvpr-2025 --export all
+
+# 导出现有 README 为 Zotero 格式
+python scripts/export_readme.py
+
+# 验证 README 格式
+python scripts/validate_readme.py
+```
 
 ### 常见问题解决
 

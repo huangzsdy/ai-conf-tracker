@@ -7,11 +7,21 @@ Pipeline stages:
 3) Validate: reject malformed/unsupported records
 4) Categorize: multi-label category + confidence assignment
 5) Render: deterministically regenerate README category blocks and coverage report
+
+Usage (without VPN/proxy):
+    HTTPS_PROXY=http://127.0.0.1:7890 python scripts/update_papers.py
+
+Usage (with proxy environment):
+    export HTTPS_PROXY=http://127.0.0.1:7890
+    export HTTP_PROXY=http://127.0.0.1:7890
+    python scripts/update_papers.py --conference-scope cvpr-2025
 """
 
 from __future__ import annotations
 
 import argparse
+import csv
+import os
 import re
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Pattern, Sequence, Tuple
@@ -473,6 +483,7 @@ def discover_papers(mode: str, conference_scope: str, tracks: str) -> Tuple[List
                     "repo_links": links,
                     "published": result.published,
                     "summary": result.summary,
+                    "authors": [a.name for a in result.authors],
                     "track": inferred_track,
                 }
             )
@@ -663,6 +674,88 @@ def update_readme(
     return category_counts
 
 
+def export_to_csv(papers: Sequence[Dict[str, Any]], output_path: str) -> None:
+    """Export papers to CSV format for Zotero import."""
+    fieldnames = ["Title", "Url", "Code Link 1", "Code Link 2", "Code Link 3", "Categories", "Confidence", "Published"]
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for paper in papers:
+            links = paper.get("repo_links", [])
+            row = {
+                "Title": paper.get("title", ""),
+                "Url": paper.get("arxiv_url", ""),
+                "Code Link 1": links[0] if len(links) > 0 else "",
+                "Code Link 2": links[1] if len(links) > 1 else "",
+                "Code Link 3": links[2] if len(links) > 2 else "",
+                "Categories": "; ".join(paper.get("categories", [])),
+                "Confidence": paper.get("confidence", {}).get(paper.get("categories", ["General"])[0], "medium"),
+                "Published": paper.get("published", "").isoformat() if paper.get("published") else "",
+            }
+            writer.writerow(row)
+    print(f"[export] CSV saved to {output_path}")
+
+
+def export_to_bibtex(papers: Sequence[Dict[str, Any]], output_path: str) -> None:
+    """Export papers to BibTeX format for Zotero import."""
+    with open(output_path, "w", encoding="utf-8") as f:
+        for paper in papers:
+            title = paper.get("title", "")
+            arxiv_url = paper.get("arxiv_url", "")
+            published = paper.get("published")
+            links = paper.get("repo_links", [])
+            categories = paper.get("categories", [])
+
+            # Generate citation key
+            first_author = "Unknown"
+            if paper.get("authors"):
+                first_author = paper["authors"][0].split()[-1]  # Last name
+            year = published.year if published else "20xx"
+            key = f"{first_author}{year}".replace(",", "").replace(" ", "")
+
+            # Format the entry
+            f.write(f"@article{{{key},\n")
+            f.write(f"  title={{{title}}},\n")
+            if paper.get("authors"):
+                f.write(f"  author={{{' and '.join(paper['authors'])}}},\n")
+            if published:
+                f.write(f"  year={{{published.year}}},\n")
+                f.write(f"  journal={{arXiv preprint}}\n")
+            f.write(f"  url={{{arxiv_url}}},\n")
+            f.write(f"  note={{Code: {', '.join(links)}}}\n")
+            f.write(f"  keywords={{{', '.join(categories)}}}\n")
+            f.write("}\n\n")
+    print(f"[export] BibTeX saved to {output_path}")
+
+
+def export_to_ris(papers: Sequence[Dict[str, Any]], output_path: str) -> None:
+    """Export papers to RIS format for Zotero import."""
+    with open(output_path, "w", encoding="utf-8") as f:
+        for paper in papers:
+            title = paper.get("title", "")
+            arxiv_url = paper.get("arxiv_url", "")
+            published = paper.get("published")
+            links = paper.get("repo_links", [])
+            categories = paper.get("categories", [])
+
+            f.write("TY  - EREP\n")
+            f.write(f"TI  - {title}\n")
+            if paper.get("authors"):
+                for author in paper["authors"]:
+                    f.write(f"AU  - {author}\n")
+            if published:
+                f.write(f"PY  - {published.year}\n")
+            f.write(f"DO  - {arxiv_url}\n")
+            f.write("M3  - preprint\n")
+            f.write(f"UR  - {arxiv_url}\n")
+            for link in links:
+                f.write(f"L1  - {link}\n")
+            for cat in categories:
+                f.write(f"KW  - {cat}\n")
+            f.write("ER  - \n\n")
+    print(f"[export] RIS saved to {output_path}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Update Awesome conference papers list")
     parser.add_argument(
@@ -682,6 +775,17 @@ def main() -> int:
         choices=sorted(TRACK_OPTIONS),
         default="all",
         help="Track filter",
+    )
+    parser.add_argument(
+        "--export",
+        choices=["csv", "bibtex", "ris", "all"],
+        help="Export format for Zotero (csv, bibtex, ris, or all)",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=str,
+        default=".",
+        help="Output directory for exported files (default: current directory)",
     )
     args = parser.parse_args()
 
@@ -712,6 +816,19 @@ def main() -> int:
         args.mode,
         args.tracks,
     )
+
+    # Export to Zotero-compatible formats if requested
+    if args.export:
+        conf_name, _ = parse_conference_scope(args.conference_scope)
+        output_dir = args.output_dir
+        os.makedirs(output_dir, exist_ok=True)
+
+        if args.export in ("csv", "all"):
+            export_to_csv(papers, os.path.join(output_dir, f"{conf_name}_papers.csv"))
+        if args.export in ("bibtex", "all"):
+            export_to_bibtex(papers, os.path.join(output_dir, f"{conf_name}_papers.bib"))
+        if args.export in ("ris", "all"):
+            export_to_ris(papers, os.path.join(output_dir, f"{conf_name}_papers.ris"))
 
     print("[summary] Pipeline completed")
     print(f"[summary] fetched_records={stats['fetched_records']}")

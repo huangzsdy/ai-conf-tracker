@@ -8,7 +8,15 @@
 
 ## Conference Scope Configuration
 
-This project is **generic** and can be configured to track any conference supported by arXiv (e.g., MICCAI, CVPR, NeurIPS, ICCV, ICLR, etc.).
+This project is **generic** and can be configured to track any conference supported by arXiv (e.g., MICCAI, CVPR, NeurIPS, ICCV, ICLR, MIDL, etc.).
+
+### 🎯 What is Conference Scope?
+
+The conference scope defines which conference papers you want to track. You can configure:
+- **Which conference** (MICCAI, CVPR, NeurIPS, etc.)
+- **Which year(s)** (specific year or all years)
+- **Matching strictness** (strict mode vs broad mode)
+- **Which tracks** (main, workshops, challenges)
 
 ### Quick Start
 
@@ -36,24 +44,119 @@ python scripts/update_papers.py --conference-scope miccai-all-years --mode broad
 
 ### Conference Scope Format
 
-- **Specific year**: `{conference}-{year}` (e.g., `miccai-2026`, `cvpr-2025`)
-- **All years**: `{conference}-all-years` (e.g., `miccai-all-years`)
+There are two ways to specify conference scope:
 
-### Examples
+- **Specific year**: `{conference}-{year}` (e.g., `miccai-2026`, `cvpr-2025`, `iclr-2026`)
+- **All years**: `{conference}-all-years` (e.g., `miccai-all-years`, `cvpr-all-years`)
+
+### Supported Conferences
+
+The crawler works with any conference that has papers submitted to arXiv. Common conferences include:
+
+| Conference | Full Name | Year Format |
+|---|---|---|
+| `miccai` | Medical Image Computing and Computer Assisted Intervention | MICCAI 2026 |
+| `cvpr` | Computer Vision and Pattern Recognition | CVPR 2025 |
+| `nips` / `neurips` | Neural Information Processing Systems | NeurIPS 2024 |
+| `iccv` | International Conference on Computer Vision | ICCV 2025 |
+| `iclr` | International Conference on Learning Representations | ICLR 2026 |
+| `midl` | Medical Imaging with Deep Learning | MIDL 2024 |
+| `aaai` | AAAI Conference on Artificial Intelligence | AAAI 2025 |
+| `ijcai` | International Joint Conference on AI | IJCAI 2024 |
+
+### Detailed Examples
+
+#### Example 1: Track a Specific Conference and Year
 
 ```bash
-# Track CVPR 2025 papers (strict - requires 2025 in metadata)
+# Track CVPR 2025 papers (strict mode - requires "CVPR 2025" in arXiv metadata)
 python scripts/update_papers.py --conference-scope cvpr-2025 --mode strict
-
-# Track CVPR all years (broad - any CVPR paper)
-python scripts/update_papers.py --conference-scope cvpr-all-years --mode broad
-
-# Track NeurIPS 2024 with workshops and challenges
-python scripts/update_papers.py --conference-scope nips-2024 --tracks all
-
-# Track ICLR 2026 with all tracks
-python scripts/update_papers.py --conference-scope iclr-2026 --tracks all
 ```
+
+**What it does:**
+- Searches arXiv for papers containing "CVPR 2025" in title, abstract, or comments
+- Only includes papers that explicitly mention 2025
+- Validates code links (GitHub, GitLab, Hugging Face)
+
+#### Example 2: Track All Years of a Conference
+
+```bash
+# Track all CVPR papers across all years (broad mode)
+python scripts/update_papers.py --conference-scope cvpr-all-years --mode broad
+```
+
+**What it does:**
+- Searches arXiv for any paper mentioning "CVPR" (any year)
+- Includes papers from all years
+- Broader matching (includes papers that just mention "CVPR" without specific year)
+
+#### Example 3: Include Workshops and Challenges
+
+```bash
+# Track NeurIPS 2024 including workshops and challenges
+python scripts/update_papers.py --conference-scope nips-2024 --tracks all
+```
+
+**What it does:**
+- Searches for NeurIPS 2024 main track papers
+- Also includes workshop papers (if title/abstract mentions "workshop")
+- Also includes challenge papers (if title/abstract mentions "challenge")
+
+#### Example 4: Track a Medical Imaging Conference
+
+```bash
+# Track MICCAI 2026 (default settings)
+python scripts/update_papers.py --conference-scope miccai-2026
+
+# Track all years of MICCAI
+python scripts/update_papers.py --conference-scope miccai-all-years
+```
+
+#### Example 5: Track ICLR for Paper Collection
+
+```bash
+# Track ICLR 2026 with all tracks (main + workshop + rebuttal)
+python scripts/update_papers.py --conference-scope iclr-2026 --mode strict --tracks all
+```
+
+### Mode Comparison
+
+| Mode | Description | Use Case |
+|---|---|---|
+| `strict` | Requires exact year in arXiv metadata | When you want papers from a specific year only |
+| `broad` | Also matches conference name without year | When you want all papers from a conference (any year) |
+
+**Example with CVPR:**
+- `strict` mode: Only papers with "CVPR 2025" explicitly in metadata
+- `broad` mode: Also includes papers that just say "CVPR" without year
+
+### Track Options
+
+| Option | Description |
+|---|---|
+| `main` | Main conference papers only |
+| `workshops` | Workshop papers only |
+| `challenges` | Challenge/competition papers only |
+| `all` | All of the above |
+
+### How the Crawler Works
+
+1. **Discover**: Fetch candidate papers from arXiv using search queries
+2. **Filter**: Filter by conference scope and year
+3. **Validate**: Check for valid code links (GitHub/GitLab/Hugging Face)
+4. **Categorize**: Assign to categories (Segmentation, Reconstruction, etc.)
+5. **Render**: Generate README.md with paper list
+
+### Common Issues and Solutions
+
+**Q: No papers found?**
+- Check if the conference name is correct
+- Try using `broad` mode instead of `strict`
+- Verify the year format (e.g., use 2025, not '25)
+
+**Q: Too few/large number of papers?**
+- Adjust `--mode` from `strict` to `broad` or vice versa
+- Modify conference scope to specific year
 
 ## 📋 Table of Contents
 

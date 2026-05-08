@@ -205,20 +205,29 @@ python scripts/update_papers.py --conference-scope iclr-2026 --mode strict --tra
 
 | 脚本 | 用途 | 关键函数 |
 |------|-----|---------|
-| `update_papers.py` | 主爬虫 - 发现、过滤、验证、分类论文 | `discover_papers()`, `validate_papers_data()`, `categorize_papers()`, `update_readme()`, `export_to_csv()` |
-| `export_readme.py` | 导出现有数据为 Zotero 格式 | `parse_readme_papers()`, `export_csv()`, `export_bibtex()`, `export_ris()` |
+| `update_papers.py` | 主爬虫 - 发现、过滤、验证、分类论文 | `discover_papers()`, `discover_papers_by_keyword()`, `validate_papers_data()`, `categorize_papers()`, `update_readme()` |
+| `export_readme.py` | 导出现有数据为 Zotero 格式 | `parse_readme_by_category()`, `export_csv()`, `export_bibtex()`, `export_ris()` |
 | `validate_readme.py` | 验证 README 格式和检查错误 | 验证标记、URL、重复项 |
 
 #### `update_papers.py` - 主爬虫
 
-核心五阶段管道：
+核心脚本支持两种模式：
 
+**模式 1：会议搜索**
 ```
-1. discover_papers()      → 从 arXiv API 获取论文
-2. validate_papers_data() → 清理链接、去除重复
-3. categorize_papers()   → 通过关键词匹配分配类别
-4. update_readme()       → 写入 README.md 分类块
-5. export_to_csv/bibtex/ris() → 可选：导出为 Zotero 格式
+1. discover_papers()          → 按会议从 arXiv 获取论文
+2. validate_papers_data()    → 清理链接、去除重复
+3. categorize_papers()       → 通过关键词匹配分配类别
+4. update_readme()           → 写入 README.md 分类块
+5. export_to_csv/bibtex/ris() → 导出为 Zotero 格式
+```
+
+**模式 2：关键词搜索**
+```
+1. discover_papers_by_keyword() → 按关键词从 arXiv 获取论文
+2. validate_papers_data()      → 清理链接、去除重复
+3. categorize_papers()       → 分配类别
+4. export_to_csv/bibtex/ris() → 导出为 Zotero 格式
 ```
 
 关键配置变量（文件顶部）：
@@ -229,10 +238,7 @@ python scripts/update_papers.py --conference-scope iclr-2026 --mode strict --tra
 
 #### `export_readme.py` - Zotero 导出工具
 
-解析现有 README.md 并导出为 Zotero 兼容格式：
-- `README_papers.csv` - 直接导入
-- `README_papers.bib` - BibTeX 格式
-- `README_papers.ris` - RIS 格式（Zotero 原生支持）
+解析现有 README.md 并导出为 Zotero 兼容格式，支持关键词过滤。
 
 #### 运行脚本
 
@@ -240,13 +246,70 @@ python scripts/update_papers.py --conference-scope iclr-2026 --mode strict --tra
 # 安装依赖
 pip install -r requirements.txt
 
-# 运行主爬虫（发现新论文）
-python scripts/update_papers.py --conference-scope cvpr-2025 --export all
+# === 会议搜索 ===
+# CVPR 2025，按类别分子目录
+python scripts/update_papers.py --conference-scope cvpr-2025 --mode strict --export all --by-category
 
-# 导出现有 README 为 Zotero 格式
-python scripts/export_readme.py
+# MICCAI 所有年份，自定义延迟（避免 429 错误）
+python scripts/update_papers.py --conference-scope miccai-all-years --mode broad --delay 10 --export all --by-category
 
-# 验证 README 格式
+# === 关键词搜索（从 arXiv）===
+# 按关键词搜索，增加延迟避免限流
+python scripts/update_papers.py --keyword "infrared small target detection" --delay 10 --export all --by-category
+
+# === 从现有 README 导出 ===
+# 导出所有论文为 Zotero 格式
+python scripts/export_readme.py --by-category --format ris
+
+# 按关键词过滤（为每个关键词创建独立目录）
+python scripts/export_readme.py --keyword "segmentation" --by-category --format ris
+
+# === 处理 429 速率限制 ===
+# 使用代理避免限流
+HTTPS_PROXY=http://127.0.0.1:7890 python scripts/update_papers.py --keyword "your keyword" --export all
+
+# 增加请求间隔（默认：5 秒）
+python scripts/update_papers.py --keyword "your keyword" --delay 10 --export all
+```
+
+#### 输出目录结构
+
+**会议搜索：**
+```
+exports/
+└── cvpr-2025/
+    ├── Segmentation/Segmentation.ris
+    ├── Classification/Classification.ris
+    └── ...
+```
+
+**关键词搜索：**
+```
+exports/
+└── infrared_small_target_detection/
+    ├── Segmentation/Segmentation.ris
+    ├── Classification/Classification.ris
+    └── ...
+```
+
+**从现有 README 过滤：**
+```
+exports/
+└── segmentation/
+    ├── Segmentation/Segmentation.ris
+    └── ...
+```
+
+#### 常见会议命令
+
+| 会议 | 命令 |
+|------|------|
+| CVPR 2025 | `--conference-scope cvpr-2025 --mode strict` |
+| NeurIPS 2025 | `--conference-scope neurips-2025 --mode strict` |
+| MICCAI 2026 | `--conference-scope miccai-2026 --mode strict` |
+| 所有 MICCAI | `--conference-scope miccai-all-years --mode broad` |
+| ICCV 2025 | `--conference-scope iccv-2025 --mode strict` |
+| ICLR 2026 | `--conference-scope iclr-2026 --mode strict` |
 python scripts/validate_readme.py
 ```
 

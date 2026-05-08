@@ -205,20 +205,29 @@ This project contains three main Python scripts in the `scripts/` directory:
 
 | Script | Purpose | Key Functions |
 |--------|---------|--------------|
-| `update_papers.py` | Main crawler - discovers, filters, validates, categorizes papers | `discover_papers()`, `validate_papers_data()`, `categorize_papers()`, `update_readme()`, `export_to_csv()` |
-| `export_readme.py` | Export existing README data to Zotero formats | `parse_readme_papers()`, `export_csv()`, `export_bibtex()`, `export_ris()` |
+| `update_papers.py` | Main crawler - discovers, filters, validates, categorizes papers | `discover_papers()`, `discover_papers_by_keyword()`, `validate_papers_data()`, `categorize_papers()`, `update_readme()` |
+| `export_readme.py` | Export existing README data to Zotero formats | `parse_readme_by_category()`, `export_csv()`, `export_bibtex()`, `export_ris()` |
 | `validate_readme.py` | Validate README format and check for errors | Validates markers, URLs, duplicates |
 
 #### `update_papers.py` - Main Crawler
 
-The core script with 5-stage pipeline:
+The core script with two modes:
 
+**Mode 1: Conference Search**
 ```
-1. discover_papers()      → Fetch papers from arXiv API
-2. validate_papers_data() → Clean links, remove duplicates
-3. categorize_papers()   → Assign categories by keyword matching
-4. update_readme()       → Write to README.md category blocks
-5. export_to_csv/bibtex/ris() → Optional: export to Zotero formats
+1. discover_papers()          → Fetch papers from arXiv by conference
+2. validate_papers_data()    → Clean links, remove duplicates
+3. categorize_papers()       → Assign categories by keyword matching
+4. update_readme()           → Write to README.md category blocks
+5. export_to_csv/bibtex/ris() → Export to Zotero formats
+```
+
+**Mode 2: Keyword Search**
+```
+1. discover_papers_by_keyword() → Fetch papers from arXiv by keyword
+2. validate_papers_data()      → Clean links, remove duplicates
+3. categorize_papers()       → Assign categories
+4. export_to_csv/bibtex/ris() → Export to Zotero formats
 ```
 
 Key configuration variables (at top of file):
@@ -229,10 +238,7 @@ Key configuration variables (at top of file):
 
 #### `export_readme.py` - Zotero Export Utility
 
-Parses existing README.md and exports to Zotero-compatible formats:
-- `README_papers.csv` - Direct import
-- `README_papers.bib` - BibTeX format
-- `README_papers.ris` - RIS format (native Zotero support)
+Parses existing README.md and exports to Zotero-compatible formats with optional keyword filtering.
 
 #### Running the Scripts
 
@@ -240,15 +246,70 @@ Parses existing README.md and exports to Zotero-compatible formats:
 # Install dependencies
 pip install -r requirements.txt
 
-# Run main crawler (discovers new papers)
-python scripts/update_papers.py --conference-scope cvpr-2025 --export all
+# === Conference Search ===
+# CVPR 2025 with category subdirectories
+python scripts/update_papers.py --conference-scope cvpr-2025 --mode strict --export all --by-category
 
-# Export existing README to Zotero formats
-python scripts/export_readme.py
+# MICCAI all years with custom delay (avoid 429 errors)
+python scripts/update_papers.py --conference-scope miccai-all-years --mode broad --delay 10 --export all --by-category
 
-# Validate README format
-python scripts/validate_readme.py
+# === Keyword Search (from arXiv) ===
+# Search by keyword, avoid rate limit with --delay
+python scripts/update_papers.py --keyword "infrared small target detection" --delay 10 --export all --by-category
+
+# === Export from existing README ===
+# Export all papers to Zotero formats
+python scripts/export_readme.py --by-category --format ris
+
+# Filter by keyword (creates separate directory per keyword)
+python scripts/export_readme.py --keyword "segmentation" --by-category --format ris
+
+# === Handle 429 Rate Limit ===
+# Use proxy to avoid rate limiting
+HTTPS_PROXY=http://127.0.0.1:7890 python scripts/update_papers.py --keyword "your keyword" --export all
+
+# Increase delay between requests (default: 5 seconds)
+python scripts/update_papers.py --keyword "your keyword" --delay 10 --export all
 ```
+
+#### Output Directory Structure
+
+**Conference Search:**
+```
+exports/
+└── cvpr-2025/
+    ├── Segmentation/Segmentation.ris
+    ├── Classification/Classification.ris
+    └── ...
+```
+
+**Keyword Search:**
+```
+exports/
+└── infrared_small_target_detection/
+    ├── Segmentation/Segmentation.ris
+    ├── Classification/Classification.ris
+    └── ...
+```
+
+**Filter from existing README:**
+```
+exports/
+└── segmentation/
+    ├── Segmentation/Segmentation.ris
+    └── ...
+```
+
+#### Common Conference Commands
+
+| Conference | Command |
+|-----------|---------|
+| CVPR 2025 | `--conference-scope cvpr-2025 --mode strict` |
+| NeurIPS 2025 | `--conference-scope neurips-2025 --mode strict` |
+| MICCAI 2026 | `--conference-scope miccai-2026 --mode strict` |
+| All MICCAI | `--conference-scope miccai-all-years --mode broad` |
+| ICCV 2025 | `--conference-scope iccv-2025 --mode strict` |
+| ICLR 2026 | `--conference-scope iclr-2026 --mode strict` |
 
 ### Common Issues and Solutions
 
@@ -668,6 +729,6 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 **Conference Scope**: cvpr-2025
 **Discovery Mode**: strict
 
-**Last Updated**: 2026-05-08 09:30 UTC by GitHub Actions
+**Last Updated**: 2026-05-08 10:14 UTC by GitHub Actions
 
 **License**: Apache License 2.0

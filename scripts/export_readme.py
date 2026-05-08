@@ -158,13 +158,34 @@ def main():
     parser = argparse.ArgumentParser(description="Export README papers to Zotero formats")
     parser.add_argument("--by-category", action="store_true", help="Export each category as separate files")
     parser.add_argument("--format", choices=["csv", "bib", "ris"], default="ris", help="Export format")
+    parser.add_argument("--keyword", type=str, help="Filter papers by keyword in title/abstract")
+    parser.add_argument("--output-dir", type=str, default="exports", help="Output directory")
     args = parser.parse_args()
 
     readme_path = "README.md"
-    output_dir = "exports"
-    os.makedirs(output_dir, exist_ok=True)
+    output_dir = args.output_dir
 
-    papers_by_category = parse_readme_by_category(readme_path)
+    # Apply keyword filter if specified
+    if args.keyword:
+        papers_by_category = parse_readme_by_category(readme_path)
+        keyword = args.keyword.lower()
+        filtered = {}
+        for category, papers in papers_by_category.items():
+            filtered_papers = [
+                p for p in papers
+                if keyword in p["title"].lower()
+            ]
+            if filtered_papers:
+                filtered[category] = filtered_papers
+        papers_by_category = filtered
+        # Use keyword as subdirectory when filtering
+        safe_keyword = re.sub(r'[^\w\-]', '_', args.keyword)
+        output_dir = os.path.join(output_dir, safe_keyword)
+        print(f"[filter] Filtered by keyword: '{args.keyword}'")
+    else:
+        papers_by_category = parse_readme_by_category(readme_path)
+
+    os.makedirs(output_dir, exist_ok=True)
 
     # Count total papers
     total = sum(len(p) for p in papers_by_category.values())

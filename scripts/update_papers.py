@@ -24,6 +24,7 @@ import csv
 import os
 import re
 from datetime import datetime, timezone
+import time
 from typing import Any, Dict, List, Optional, Pattern, Sequence, Tuple
 from urllib.parse import urlparse
 
@@ -425,7 +426,7 @@ def discover_papers(mode: str, conference_scope: str, tracks: str) -> Tuple[List
 
     queries = build_queries(mode, conference_scope)
 
-    client = arxiv.Client(page_size=100, delay_seconds=3, num_retries=3)
+    client = arxiv.Client(page_size=100, delay_seconds=3, num_retries=5)
     seen_arxiv = set()
     papers: List[Dict[str, Any]] = []
     failed_queries: List[str] = []
@@ -488,6 +489,70 @@ def discover_papers(mode: str, conference_scope: str, tracks: str) -> Tuple[List
                 }
             )
             stats["accepted_records"] += 1
+
+    return papers, stats, failed_queries
+
+
+def discover_papers_by_keyword(keyword: str, max_results: int = 500) -> Tuple[List[Dict[str, Any]], Dict[str, int], List[str]]:
+    """Discover papers by custom keyword search."""
+    print(f"[discover] Searching arXiv by keyword: {keyword}")
+
+    client = arxiv.Client(page_size=100, delay_seconds=5, num_retries=5)
+    seen_arxiv = set()
+    papers: List[Dict[str, Any]] = []
+    stats = {
+        "fetched_records": 0,
+        "unique_arxiv_records": 0,
+        "without_code_links": 0,
+        "filtered_non_target": 0,
+        "filtered_track": 0,
+        "accepted_records": 0,
+    }
+    failed_queries = []
+
+    # Search by keyword in title and abstract
+    query = f"all:{keyword}"
+
+    try:
+        print(f"[discover] Query: {query}")
+        search = arxiv.Search(
+            query=query,
+            max_results=max_results,
+            sort_by=arxiv.SortCriterion.Relevance,
+            sort_order=arxiv.SortOrder.Descending,
+        )
+        results = list(client.results(search))
+        print(f"[discover] Results: {len(results)}")
+    except Exception as exc:
+        failed_queries.append(f"{query}: {exc}")
+        print(f"[discover] ERROR: {query} failed -> {exc}")
+        return papers, stats, failed_queries
+
+    for result in results:
+        stats["fetched_records"] += 1
+        if result.entry_id in seen_arxiv:
+            continue
+        seen_arxiv.add(result.entry_id)
+
+        # Extract code links from comment and links
+        comment = getattr(result, "comment", "") or ""
+        text = f"{result.title}\n{result.summary}\n{comment}"
+        links = get_repository_links(text)
+
+        if not links:
+            stats["without_code_links"] += 1
+            continue
+
+        papers.append({
+            "title": result.title.strip(),
+            "arxiv_url": result.entry_id.replace("http://", "https://"),
+            "repo_links": links,
+            "published": result.published,
+            "summary": result.summary,
+            "authors": [a.name for a in result.authors],
+            "track": "keyword",
+        })
+        stats["accepted_records"] += 1
 
     return papers, stats, failed_queries
 
@@ -777,6 +842,11 @@ def main() -> int:
         help="Track filter",
     )
     parser.add_argument(
+        "--keyword",
+        type=str,
+        help="Custom keyword search (instead of conference-scope). Searches arXiv by keyword.",
+    )
+    parser.add_argument(
         "--export",
         choices=["csv", "bibtex", "ris", "all"],
         help="Export format for Zotero (csv, bibtex, ris, or all)",
@@ -792,6 +862,12 @@ def main() -> int:
         action="store_true",
         help="Export each category to separate subdirectories",
     )
+    parser.add_argument(
+        "--delay",
+        type=int,
+        default=5,
+        help="Delay seconds between API requests (default: 5)",
+    )
     args = parser.parse_args()
 
     # Validate conference scope format
@@ -805,7 +881,11 @@ def main() -> int:
         f"(mode={args.mode}, conference_scope={args.conference_scope}, tracks={args.tracks})"
     )
 
-    papers, stats, failed_queries = discover_papers(args.mode, args.conference_scope, args.tracks)
+    # Use keyword search or conference search
+    if args.keyword:
+        papers, stats, failed_queries = discover_papers_by_keyword(args.keyword)
+    else:
+        papers, stats, failed_queries = discover_papers(args.mode, args.conference_scope, args.tracks)
 
     if failed_queries:
         print("[discover] Failing update because one or more discovery queries failed:")
@@ -824,8 +904,15 @@ def main() -> int:
 
     # Export to Zotero-compatible formats if requested
     if args.export:
-        conf_name, _ = parse_conference_scope(args.conference_scope)
-        output_dir = args.output_dir
+        # Determine base output directory
+        if args.keyword:
+            # Use keyword as subdirectory
+            safe_keyword = re.sub(r'[^\w\-]', '_', args.keyword)
+            output_dir = os.path.join(args.output_dir, safe_keyword)
+        else:
+            conf_name, _ = parse_conference_scope(args.conference_scope)
+            output_dir = os.path.join(args.output_dir, conf_name)
+
         os.makedirs(output_dir, exist_ok=True)
 
         if args.by_category:

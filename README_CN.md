@@ -27,6 +27,9 @@ pip install -r requirements.txt
 # 使用默认设置运行（MICCAI 2026，strict 模式）
 python scripts/update_papers.py
 
+# 使用关键词搜索 arXiv（不需要指定会议名称）
+python scripts/update_papers.py --keyword "infrared small target detection"
+
 # 使用不同的会议范围
 python scripts/update_papers.py --conference-scope cvpr-2025 --mode broad
 

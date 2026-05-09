@@ -27,6 +27,9 @@ pip install -r requirements.txt
 # Run with default settings (MICCAI 2026, strict mode)
 python scripts/update_papers.py
 
+# Search arXiv by keyword (no conference name needed)
+python scripts/update_papers.py --keyword "infrared small target detection"
+
 # Run with different conference scope
 python scripts/update_papers.py --conference-scope cvpr-2025 --mode broad
 
@@ -268,6 +271,10 @@ set HTTPS_PROXY=http://127.0.0.1:7897&& set HTTP_PROXY=http://127.0.0.1:7897&& p
 # === Keyword Search (from arXiv) ===
 # Search by keyword, avoid rate limit with --delay
 python scripts/update_papers.py --keyword "infrared small target detection" --delay 10 --export all --by-category
+
+# === Keyword Search (Full Example) ===
+# Search by custom keyword with all features - no conference needed
+python scripts/update_papers.py --keyword "segmentation" --mode strict --export all --by-category --output-dir exports --require-code --delay 10
 
 # === Export from existing README ===
 # Export all papers to Zotero formats

@@ -253,6 +253,18 @@ python scripts/update_papers.py --conference-scope cvpr-2025 --mode strict --exp
 # MICCAI 所有年份，自定义延迟（避免 429 错误）
 python scripts/update_papers.py --conference-scope miccai-all-years --mode broad --delay 10 --export all --by-category
 
+# === 最大能力示例 ===
+# 最完整的命令，启用所有功能
+# - 所有年份，所有轨道（主会议 + 研讨会 + 挑战赛）
+# - 严格模式，需要代码链接
+# - 导出所有格式（CSV + BibTeX + RIS），按类别分组
+# - 最大延迟避免限流
+python scripts/update_papers.py --conference-scope miccai-all-years --mode strict --tracks all --export all --by-category --output-dir exports --require-code --delay 10
+
+# === 使用代理（如 Clash 端口 7897）===
+# 如果需要代理访问 arXiv，先设置环境变量
+set HTTPS_PROXY=http://127.0.0.1:7897&& set HTTP_PROXY=http://127.0.0.1:7897&& python scripts/update_papers.py --conference-scope miccai-all-years --mode strict --tracks all --export all --by-category --output-dir exports --require-code --delay 10
+
 # === 关键词搜索（从 arXiv）===
 # 按关键词搜索，增加延迟避免限流
 python scripts/update_papers.py --keyword "infrared small target detection" --delay 10 --export all --by-category

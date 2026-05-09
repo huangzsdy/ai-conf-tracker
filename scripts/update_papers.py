@@ -31,6 +31,11 @@ from urllib.parse import urlparse
 import arxiv
 
 
+# Exponential backoff base delay in seconds
+BACKOFF_BASE_DELAY = 10
+MAX_RETRIES = 5
+
+
 CATEGORY_ORDER = [
     "Segmentation",
     "Reconstruction",
@@ -399,6 +404,42 @@ def is_target_conference_paper(text: str, arxiv_url: str, mode: str, conference_
 is_target_miccai_paper = is_target_conference_paper
 
 
+def is_rate_limit_error(exc: Exception) -> bool:
+    """Check if an exception is an arXiv API rate limit error (HTTP 429)."""
+    exc_str = str(exc)
+    return "429" in exc_str or "rate limit" in exc_str.lower()
+
+
+def execute_query_with_retry(
+    client: arxiv.Client,
+    search: arxiv.Search,
+    query: str,
+    max_retries: int = MAX_RETRIES,
+) -> Tuple[List[arxiv.Result], bool, List[str]]:
+    """Execute arXiv search query with exponential backoff retry for rate limit errors.
+
+    Returns:
+        Tuple of (results, success, errors)
+    """
+    errors: List[str] = []
+
+    for attempt in range(max_retries):
+        try:
+            results = list(client.results(search))
+            return results, True, []
+        except Exception as exc:
+            if is_rate_limit_error(exc) and attempt < max_retries - 1:
+                delay = BACKOFF_BASE_DELAY * (2 ** attempt)
+                print(f"[discover] Rate limited, retrying in {delay}s (attempt {attempt + 1}/{max_retries})...")
+                time.sleep(delay)
+                errors.append(f"Retry {attempt + 1}: {exc}")
+            else:
+                errors.append(str(exc))
+                return [], False, errors
+
+    return [], False, errors
+
+
 def build_queries(mode: str, conference_scope: str) -> List[str]:
     """Build arXiv search queries based on conference scope."""
     conf_name, conf_year = parse_conference_scope(conference_scope)
@@ -441,19 +482,20 @@ def discover_papers(mode: str, conference_scope: str, tracks: str, require_code:
 
     for query in queries:
         print(f"[discover] Query: {query}")
-        try:
-            search = arxiv.Search(
-                query=query,
-                max_results=5000 if conference_scope == "miccai-all-years" else 300,
-                sort_by=arxiv.SortCriterion.SubmittedDate,
-                sort_order=arxiv.SortOrder.Descending,
-            )
-            results = list(client.results(search))
-            print(f"[discover] Results: {len(results)}")
-        except Exception as exc:
-            failed_queries.append(f"{query}: {exc}")
-            print(f"[discover] ERROR: {query} failed -> {exc}")
+        search = arxiv.Search(
+            query=query,
+            max_results=5000 if conference_scope == "miccai-all-years" else 300,
+            sort_by=arxiv.SortCriterion.SubmittedDate,
+            sort_order=arxiv.SortOrder.Descending,
+        )
+        results, success, retry_errors = execute_query_with_retry(client, search, query)
+
+        if not success:
+            failed_queries.append(f"{query}: {retry_errors[-1] if retry_errors else 'Unknown error'}")
+            print(f"[discover] ERROR: {query} failed after {MAX_RETRIES} retries")
             continue
+
+        print(f"[discover] Results: {len(results)}")
 
         for result in results:
             stats["fetched_records"] += 1
@@ -513,20 +555,21 @@ def discover_papers_by_keyword(keyword: str, max_results: int = 500, require_cod
     # Search by keyword in title and abstract
     query = f"all:{keyword}"
 
-    try:
-        print(f"[discover] Query: {query}")
-        search = arxiv.Search(
-            query=query,
-            max_results=max_results,
-            sort_by=arxiv.SortCriterion.Relevance,
-            sort_order=arxiv.SortOrder.Descending,
-        )
-        results = list(client.results(search))
-        print(f"[discover] Results: {len(results)}")
-    except Exception as exc:
-        failed_queries.append(f"{query}: {exc}")
-        print(f"[discover] ERROR: {query} failed -> {exc}")
+    print(f"[discover] Query: {query}")
+    search = arxiv.Search(
+        query=query,
+        max_results=max_results,
+        sort_by=arxiv.SortCriterion.Relevance,
+        sort_order=arxiv.SortOrder.Descending,
+    )
+    results, success, retry_errors = execute_query_with_retry(client, search, query)
+
+    if not success:
+        failed_queries.extend(retry_errors)
+        print(f"[discover] ERROR: {query} failed after {MAX_RETRIES} retries")
         return papers, stats, failed_queries
+
+    print(f"[discover] Results: {len(results)}")
 
     for result in results:
         stats["fetched_records"] += 1

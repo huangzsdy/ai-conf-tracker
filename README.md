@@ -563,25 +563,25 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 ## 📈 Coverage Report
 
 <!-- BEGIN COVERAGE_REPORT -->
-- Conference scope: `neurips-2025`
+- Conference scope: `ICCV-2025`
 - Discovery mode: `strict`
 - Tracks: `all`
-- Total code-backed papers: `94`
-- Fetched arXiv records: `500`
-- Unique arXiv records: `0`
-- Filtered (non-target): `0`
+- Total code-backed papers: `84`
+- Fetched arXiv records: `324`
+- Unique arXiv records: `319`
+- Filtered (non-target): `10`
 - Filtered (track): `0`
-- Filtered (no code links): `406`
+- Filtered (no code links): `225`
 
 | Category | Count | Gap to 1000 |
 |---|---:|---:|
-| Segmentation | 17 | 983 |
-| Reconstruction | 5 | 995 |
-| Classification | 87 | 913 |
-| Image Registration | 8 | 992 |
-| Domain Adaptation | 6 | 994 |
-| Generative Models | 12 | 988 |
-| General | 6 | 994 |
+| Segmentation | 11 | 989 |
+| Reconstruction | 9 | 991 |
+| Classification | 17 | 983 |
+| Image Registration | 19 | 981 |
+| Domain Adaptation | 5 | 995 |
+| Generative Models | 25 | 975 |
+| General | 31 | 969 |
 <!-- END COVERAGE_REPORT -->
 
 ## 📊 Segmentation
@@ -589,23 +589,17 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 *This list is automatically generated. See any issues? Please open a pull request!*
 
 <!-- BEGIN SEGMENTATION_PAPERS -->
-* **[Rethinking IRSTD: Single-Point Supervision Guided Encoder-only Framework is Enough for Infrared Small Target Detection](https://arxiv.org/abs/2604.05363v1)** - [Code](https://github.com/nirixiang/spire-irstd) (confidence: medium)
-* **[Point-to-Mask: From Arbitrary Point Annotations to Mask-Level Infrared Small Target Detection](https://arxiv.org/abs/2603.16257v1)** - [Code](https://github.com/gaoscience/point-to-mask) (confidence: high)
-* **[CSPENet: Contour-Aware and Saliency Priors Embedding Network for Infrared Small Target Detection](https://arxiv.org/abs/2505.09943v1)** - [Code](https://github.com/idip2025/cspenet) (confidence: high)
-* **[Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation](https://arxiv.org/abs/2504.09480v1)** - [Code](https://github.com/better-chao/perceptual_abilities_evaluation) (confidence: high)
-* **[Unleashing the Power of Generic Segmentation Models: A Simple Baseline for Infrared Small Target Detection](https://arxiv.org/abs/2409.04714v1)** - [Code](https://github.com/o937-blip/simir) (confidence: high)
-* **[Towards Robust Infrared Small Target Detection: A Feature-Enhanced and Sensitivity-Tunable Framework](https://arxiv.org/abs/2407.20090v3)** - [Code](https://github.com/yuchuang1205/fest-framework) (confidence: medium)
-* **[Background Semantics Matter: Cross-Task Feature Exchange Network for Clustered Infrared Small Target Detection](https://arxiv.org/abs/2407.20078v3)** - [Code](https://github.com/grokcv/bafe-net) (confidence: medium)
-* **[SMPISD-MTPNet: Scene Semantic Prior-Assisted Infrared Ship Detection Using Multi-Task Perception Networks](https://arxiv.org/abs/2407.18487v1)** - [Code](https://github.com/greekinroma/kmndnet) (confidence: medium)
-* **[Mitigate Target-level Insensitivity of Infrared Small Target Detection via Posterior Distribution Modeling](https://arxiv.org/abs/2403.08380v1)** - [Code](https://github.com/li-haoqing/irstd-diff) (confidence: high)
-* **[Click on Mask: A Labor-efficient Annotation Framework with Level Set for Infrared Small Target Detection](https://arxiv.org/abs/2310.12562v1)** - [Code](https://github.com/li-haoqing/com) (confidence: high)
-* **[Mapping Degeneration Meets Label Evolution: Learning Infrared Small Target Detection with Single Point Supervision](https://arxiv.org/abs/2304.01484v3)** - [Code](https://github.com/xinyiying/lesps) (confidence: medium)
-* **[ABC: Attention with Bilinear Correlation for Infrared Small Target Detection](https://arxiv.org/abs/2303.10321v1)** - [Code](https://github.com/panpeiwen/abc) (confidence: medium)
-* **[Local Contrast and Global Contextual Information Make Infrared Small Object Salient Again](https://arxiv.org/abs/2301.12093v3)** - [Code](https://github.com/wcyjerry/basicisos) (confidence: medium)
-* **[A Multi-task Framework for Infrared Small Target Detection and Segmentation](https://arxiv.org/abs/2206.06923v1)** - [Code](https://github.com/chenastron/mtunet) (confidence: high)
-* **[A Survey of Self-Supervised and Few-Shot Object Detection](https://arxiv.org/abs/2110.14711v3)** - [Code](https://github.com/gabrielhuang/awesome-few-shot-object-detection) (confidence: medium)
-* **[Agnostic Lane Detection](https://arxiv.org/abs/1905.03704v1)** - [Code](https://github.com/cardwing/codes-for-lane-detection) (confidence: medium)
-* **[Towards Pedestrian Detection Using RetinaNet in ECCV 2018 Wider Pedestrian Detection Challenge](https://arxiv.org/abs/1902.01031v1)** - [Code](https://github.com/miltonbd/eccv_2018_pedestrian_detection_challenege) (confidence: medium)
+* **[GDKVM: Echocardiography Video Segmentation via Spatiotemporal Key-Value Memory with Gated Delta Rule](https://arxiv.org/abs/2512.10252v1)** - [Code](https://github.com/wangrui2025/gdkvm) (confidence: high)
+* **[Exploiting Domain Properties in Language-Driven Domain Generalization for Semantic Segmentation](https://arxiv.org/abs/2512.03508v2)** - [Code](https://github.com/jone1222/dpmformer) (confidence: high)
+* **[MINDiff: Mask-Integrated Negative Attention for Controlling Overfitting in Text-to-Image Personalization](https://arxiv.org/abs/2511.17888v1)** - [Code](https://github.com/seuleepy/mindiff) (confidence: medium)
+* **[Controllable-LPMoE: Adapting to Challenging Object Segmentation via Dynamic Local Priors from Mixture-of-Experts](https://arxiv.org/abs/2510.21114v1)** - [Code](https://github.com/csysi/controllable-lpmoe) (confidence: high)
+* **[MK-UNet: Multi-kernel Lightweight CNN for Medical Image Segmentation](https://arxiv.org/abs/2509.18493v1)** - [Code](https://github.com/sldgroup/mk-unet) (confidence: high)
+* **[The 1st Solution for 7th LSVOS RVOS Track: SaSaSa2VA](https://arxiv.org/abs/2509.16972v2)** - [Code](https://github.com/bytedance/sa2va) (confidence: medium)
+* **[Plug-in Feedback Self-adaptive Attention in CLIP for Training-free Open-Vocabulary Segmentation](https://arxiv.org/abs/2508.20265v1)** - [Code](https://github.com/chi-chi-zx/fsa) (confidence: high)
+* **[AutoQ-VIS: Improving Unsupervised Video Instance Segmentation via Automatic Quality Assessment](https://arxiv.org/abs/2508.19808v1)** - [Code](https://github.com/wcbup/autoq-vis) (confidence: high)
+* **[DictAS: A Framework for Class-Generalizable Few-Shot Anomaly Segmentation via Dictionary Lookup](https://arxiv.org/abs/2508.13560v2)** - [Code](https://github.com/xiaozhen228/dictas) (confidence: high)
+* **[OVG-HQ: Online Video Grounding with Hybrid-modal Queries](https://arxiv.org/abs/2508.11903v1)** - [Code](https://github.com/maojiaqi2324/ovg-hq) (confidence: medium)
+* **[Revisiting Efficient Semantic Segmentation: Learning Offsets for Better Spatial and Class Feature Alignment](https://arxiv.org/abs/2508.08811v1)** - [Code](https://github.com/hvision-nku/offseg) (confidence: high)
 <!-- END SEGMENTATION_PAPERS -->
 
 ## 🔧 Reconstruction
@@ -613,11 +607,15 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 *This list is automatically generated. See any issues? Please open a pull request!*
 
 <!-- BEGIN RECONSTRUCTION_PAPERS -->
-* **[Rethinking IRSTD: Single-Point Supervision Guided Encoder-only Framework is Enough for Infrared Small Target Detection](https://arxiv.org/abs/2604.05363v1)** - [Code](https://github.com/nirixiang/spire-irstd) (confidence: medium)
-* **[DISTA-Net: Dynamic Closely-Spaced Infrared Small Target Unmixing](https://arxiv.org/abs/2505.19148v2)** - [Code](https://github.com/grokcv/grokcso) (confidence: medium)
-* **[ARFC-WAHNet: Adaptive Receptive Field Convolution and Wavelet-Attentive Hierarchical Network for Infrared Small Target Detection](https://arxiv.org/abs/2505.10595v2)** - [Code](https://github.com/leaf2001/arfc-wahnet) (confidence: medium)
-* **[DPDETR: Decoupled Position Detection Transformer for Infrared-Visible Object Detection](https://arxiv.org/abs/2408.06123v2)** - [Code](https://github.com/gjj45/dpdetr) (confidence: medium)
-* **[Local Motion and Contrast Priors Driven Deep Network for Infrared Small Target Super-Resolution](https://arxiv.org/abs/2201.01014v5)** - [Code](https://github.com/xinyiying/mocopnet) (confidence: high)
+* **[MedVSR: Medical Video Super-Resolution with Cross State-Space Propagation](https://arxiv.org/abs/2509.21265v2)** - [Code](https://github.com/cuhk-aim-group/medvsr) (confidence: high)
+* **[From Prompt to Progression: Taming Video Diffusion Models for Seamless Attribute Transition](https://arxiv.org/abs/2509.19690v1)** - [Code](https://github.com/lynn-ling-lo/prompt2progression) (confidence: medium)
+* **[Objectness Similarity: Capturing Object-Level Fidelity in 3D Scene Evaluation](https://arxiv.org/abs/2509.09143v1)** - [Code](https://github.com/objectness-similarity/osim) (confidence: medium)
+* **[VQualA 2025 Challenge on Image Super-Resolution Generated Content Quality Assessment: Methods and Results](https://arxiv.org/abs/2509.06413v1)** - [Code](https://github.com/lighting-yxli/isrgen-qa) (confidence: high)
+* **[Towards More Diverse and Challenging Pre-training for Point Cloud Learning: Self-Supervised Cross Reconstruction with Decoupled Views](https://arxiv.org/abs/2509.01250v1)** - [Code](https://github.com/ahapbean/point-pqae) (confidence: high)
+* **[Automated Feature Tracking for Real-Time Kinematic Analysis and Shape Estimation of Carbon Nanotube Growth](https://arxiv.org/abs/2508.19232v1)** - [Code](https://github.com/kavehsfv/vftrack) (confidence: medium)
+* **[MUSE: Multi-Subject Unified Synthesis via Explicit Layout Semantic Expansion](https://arxiv.org/abs/2508.14440v1)** - [Code](https://github.com/pf0607/muse) (confidence: medium)
+* **[RayletDF: Raylet Distance Fields for Generalizable 3D Surface Reconstruction from Point Clouds or Gaussians](https://arxiv.org/abs/2508.09830v1)** - [Code](https://github.com/vlar-group/rayletdf) (confidence: high)
+* **[Reverse Convolution and Its Applications to Image Restoration](https://arxiv.org/abs/2508.09824v2)** - [Code](https://github.com/cszn/conversenet) (confidence: high)
 <!-- END RECONSTRUCTION_PAPERS -->
 
 ## 🏷️ Classification
@@ -625,93 +623,23 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 *This list is automatically generated. See any issues? Please open a pull request!*
 
 <!-- BEGIN CLASSIFICATION_PAPERS -->
-* **[Rethinking IRSTD: Single-Point Supervision Guided Encoder-only Framework is Enough for Infrared Small Target Detection](https://arxiv.org/abs/2604.05363v1)** - [Code](https://github.com/nirixiang/spire-irstd) (confidence: high)
-* **[Rethinking Representations for Cross-Domain Infrared Small Target Detection: A Generalizable Perspective from the Frequency Domain](https://arxiv.org/abs/2604.01934v1)** - [Code](https://github.com/fuyimin96/s2cpnet) (confidence: high)
-* **[FSGNet: A Frequency-Aware and Semantic Guidance Network for Infrared Small Target Detection](https://arxiv.org/abs/2603.25389v1)** - [Code](https://github.com/wangtao-bao/fsgnet) (confidence: high)
-* **[Point-to-Mask: From Arbitrary Point Annotations to Mask-Level Infrared Small Target Detection](https://arxiv.org/abs/2603.16257v1)** - [Code](https://github.com/gaoscience/point-to-mask) (confidence: high)
-* **[MI-DETR: A Strong Baseline for Moving Infrared Small Target Detection with Bio-Inspired Motion Integration](https://arxiv.org/abs/2603.05071v1)** - [Code](https://github.com/nliu-25/mi-detr) (confidence: high)
-* **[No Memorization, No Detection: Output Distribution-Based Contamination Detection in Small Language Models](https://arxiv.org/abs/2603.03203v3)** - [Code](https://github.com/sela-omer/contamination-detection-small-lm) (confidence: high)
-* **[Dynamic High-frequency Convolution for Infrared Small Target Detection](https://arxiv.org/abs/2602.02969v1)** - [Code](https://github.com/tinalrj/dhif) (confidence: high)
-* **[DCCS-Det: Directional Context and Cross-Scale-Aware Detector for Infrared Small Target](https://arxiv.org/abs/2601.16428v1)** - [Code](https://huggingface.co/inpeerreview/infraredsmalltargetdetection-irstd.dccs) (confidence: medium)
-* **[FeedbackSTS-Det: Sparse Frames-Based Spatio-Temporal Semantic Feedback Network for Moving Infrared Small Target Detection](https://arxiv.org/abs/2601.14690v2)** - [Code](https://github.com/idip-lab/feedbacksts-det) (confidence: high)
-* **[Gradient-Guided Learning Network for Infrared Small Target Detection](https://arxiv.org/abs/2512.09497v1)** - [Code](https://github.com/yuchuang1205/msda-net) (confidence: high)
-* **[Traffic Scene Small Target Detection Method Based on YOLOv8n-SPTS Model for Autonomous Driving](https://arxiv.org/abs/2512.09296v1)** - [Code](https://github.com/songhanwu/yolov8n-spts) (confidence: high)
-* **[Rethinking Infrared Small Target Detection: A Foundation-Driven Efficient Paradigm](https://arxiv.org/abs/2512.05511v1)** - [Code](https://github.com/yuchuang1205/fdep-framework) (confidence: high)
-* **[Difference Decomposition Networks for Infrared Small Target Detection](https://arxiv.org/abs/2512.03470v4)** - [Code](https://github.com/greekinroma/irstd_hc_platform) (confidence: high)
-* **[Ivan-ISTD: Rethinking Cross-domain Heteroscedastic Noise Perturbations in Infrared Small Target Detection](https://arxiv.org/abs/2510.12241v1)** - [Code](https://github.com/nanjin1/ivan-istd) (confidence: high)
+* **[Attention to Neural Plagiarism: Diffusion Models Can Plagiarize Your Copyrighted Images!](https://arxiv.org/abs/2603.00150v1)** - [Code](https://github.com/zzzucf/neural-plagiarism) (confidence: medium)
+* **[DeepShield: Fortifying Deepfake Video Detection with Local and Global Forgery Analysis](https://arxiv.org/abs/2510.25237v2)** - [Code](https://github.com/lijichang/deepshield) (confidence: high)
+* **[Beyond Single Images: Retrieval Self-Augmented Unsupervised Camouflaged Object Detection](https://arxiv.org/abs/2510.18437v1)** - [Code](https://github.com/xiaohainku/rise) (confidence: high)
+* **[CARDIUM: Congenital Anomaly Recognition with Diagnostic Images and Unified Medical records](https://arxiv.org/abs/2510.15208v2)** - [Code](https://github.com/bcv-uniandes/cardium) (confidence: high)
+* **[Hierarchical Reasoning with Vision-Language Models for Incident Reports from Dashcam Videos](https://arxiv.org/abs/2510.12190v1)** - [Code](https://github.com/riron1206/kaggle-2coool-2nd-place-solution) (confidence: medium)
+* **[Cooperative Pseudo Labeling for Unsupervised Federated Classification](https://arxiv.org/abs/2510.10100v1)** - [Code](https://github.com/krumpguo/fedcopl) (confidence: high)
+* **[StyleKeeper: Prevent Content Leakage using Negative Visual Query Guidance](https://arxiv.org/abs/2510.06827v1)** - [Code](https://github.com/naver-ai/stylekeeper) (confidence: medium)
 * **[TY-RIST: Tactical YOLO Tricks for Real-time Infrared Small Target Detection](https://arxiv.org/abs/2509.22909v1)** - [Code](https://github.com/moured/ty-rist) (confidence: high)
-* **[Rethinking Evaluation of Infrared Small Target Detection](https://arxiv.org/abs/2509.16888v2)** - [Code](https://github.com/lartpang/pyirstdmetrics) (confidence: high)
-* **[Lightweight Deep Unfolding Networks with Enhanced Robustness for Infrared Small Target Detection](https://arxiv.org/abs/2509.08205v1)** - [Code](https://github.com/xianchaoxiu/l-rpcanet) (confidence: high)
-* **[HyperTea: A Hypergraph-based Temporal Enhancement and Alignment Network for Moving Infrared Small Target Detection](https://arxiv.org/abs/2508.10678v1)** - [Code](https://github.com/lurenjia-lrj/hypertea) (confidence: high)
-* **[SeqCSIST: Sequential Closely-Spaced Infrared Small Target Unmixing](https://arxiv.org/abs/2507.09556v1)** - [Code](https://github.com/grokcv/seqcsist) (confidence: medium)
-* **[DRPCA-Net: Make Robust PCA Great Again for Infrared Small Target Detection](https://arxiv.org/abs/2507.09541v1)** - [Code](https://github.com/grokcv/drpca-net) (confidence: high)
-* **[SDS-Net: Shallow-Deep Synergism-detection Network for infrared small target detection](https://arxiv.org/abs/2506.06042v1)** - [Code](https://github.com/physilearn/sds-net) (confidence: high)
-* **[SAMamba: Adaptive State Space Modeling with Hierarchical Vision for Infrared Small Target Detection](https://arxiv.org/abs/2505.23214v1)** - [Code](https://github.com/zhengshuchen/samamba) (confidence: high)
-* **[DISTA-Net: Dynamic Closely-Spaced Infrared Small Target Unmixing](https://arxiv.org/abs/2505.19148v2)** - [Code](https://github.com/grokcv/grokcso) (confidence: medium)
-* **[AuxDet: Auxiliary Metadata Matters for Omni-Domain Infrared Small Target Detection](https://arxiv.org/abs/2505.15184v2)** - [Code](https://github.com/grokcv/auxdet) (confidence: high)
-* **[ARFC-WAHNet: Adaptive Receptive Field Convolution and Wavelet-Attentive Hierarchical Network for Infrared Small Target Detection](https://arxiv.org/abs/2505.10595v2)** - [Code](https://github.com/leaf2001/arfc-wahnet) (confidence: high)
-* **[CSPENet: Contour-Aware and Saliency Priors Embedding Network for Infrared Small Target Detection](https://arxiv.org/abs/2505.09943v1)** - [Code](https://github.com/idip2025/cspenet) (confidence: high)
-* **[Case Study: Fine-tuning Small Language Models for Accurate and Private CWE Detection in Python Code](https://arxiv.org/abs/2504.16584v1)** - [Code](https://huggingface.co/datasets/floxihunter) (confidence: high) | [Code2](https://huggingface.co/floxihunter/codegen-mono-cwedetect)
-* **[Rethinking Generalizable Infrared Small Target Detection: A Real-scene Benchmark and Cross-view Representation Learning](https://arxiv.org/abs/2504.16487v1)** - [Code](https://github.com/luy0222/realscene-istd) (confidence: high)
-* **[Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation](https://arxiv.org/abs/2504.09480v1)** - [Code](https://github.com/better-chao/perceptual_abilities_evaluation) (confidence: high)
-* **[Detection-Friendly Nonuniformity Correction: A Union Framework for Infrared UAVTarget Detection](https://arxiv.org/abs/2504.04012v1)** - [Code](https://github.com/ivplaboratory/unicd) (confidence: high)
-* **[Low-Level Matters: An Efficient Hybrid Architecture for Robust Multi-frame Infrared Small Target Detection](https://arxiv.org/abs/2503.02220v1)** - [Code](https://github.com/zhihuashen/lvnet) (confidence: high)
-* **[SoccerSynth-Detection: A Synthetic Dataset for Soccer Player Detection](https://arxiv.org/abs/2501.09281v2)** - [Code](https://github.com/open-starlab/soccersynth-detection) (confidence: high)
-* **[EDNet: Edge-Optimized Small Target Detection in UAV Imagery -- Faster Context Attention, Better Feature Fusion, and Hardware Acceleration](https://arxiv.org/abs/2501.05885v1)** - [Code](https://github.com/zsniko/ednet) (confidence: high)
-* **[Pinwheel-shaped Convolution and Scale-based Dynamic Loss for Infrared Small Target Detection](https://arxiv.org/abs/2412.16986v1)** - [Code](https://github.com/jn-yang/pconv-sdloss-data) (confidence: high)
-* **[From Easy to Hard: Progressive Active Learning Framework for Infrared Small Target Detection with Single Point Supervision](https://arxiv.org/abs/2412.11154v3)** - [Code](https://github.com/yuchuang1205/pal) (confidence: high)
-* **[MaDiNet: Mamba Diffusion Network for SAR Target Detection](https://arxiv.org/abs/2411.07500v1)** - [Code](https://github.com/joyezlearning/madinet) (confidence: high)
-* **[Correlation of Object Detection Performance with Visual Saliency and Depth Estimation](https://arxiv.org/abs/2411.02844v1)** - [Code](https://github.com/mbar0075/object-detection-correlation-saliency-vs-depth) (confidence: high)
-* **[DATransNet: Dynamic Attention Transformer Network for Infrared Small Target Detection](https://arxiv.org/abs/2409.19599v5)** - [Code](https://github.com/greekinroma/datransnet) (confidence: high)
-* **[Infrared Small Target Detection in Satellite Videos: A New Dataset and A Novel Recurrent Feature Refinement Framework](https://arxiv.org/abs/2409.12448v3)** - [Code](https://github.com/xinyiying/rfr) (confidence: high)
-* **[Unleashing the Power of Generic Segmentation Models: A Simple Baseline for Infrared Small Target Detection](https://arxiv.org/abs/2409.04714v1)** - [Code](https://github.com/o937-blip/simir) (confidence: high)
-* **[Beyond Full Labels: Energy-Double-Guided Single-Point Prompt for Infrared Small Target Label Generation](https://arxiv.org/abs/2408.08191v5)** - [Code](https://github.com/xdfai/edgsp) (confidence: medium)
-* **[DPDETR: Decoupled Position Detection Transformer for Infrared-Visible Object Detection](https://arxiv.org/abs/2408.06123v2)** - [Code](https://github.com/gjj45/dpdetr) (confidence: high)
-* **[Pick of the Bunch: Detecting Infrared Small Targets Beyond Hit-Miss Trade-Offs via Selective Rank-Aware Attention](https://arxiv.org/abs/2408.03717v2)** - [Code](https://github.com/grokcv/serankdet) (confidence: medium)
-* **[Towards Robust Infrared Small Target Detection: A Feature-Enhanced and Sensitivity-Tunable Framework](https://arxiv.org/abs/2407.20090v3)** - [Code](https://github.com/yuchuang1205/fest-framework) (confidence: high)
-* **[Background Semantics Matter: Cross-Task Feature Exchange Network for Clustered Infrared Small Target Detection](https://arxiv.org/abs/2407.20078v3)** - [Code](https://github.com/grokcv/bafe-net) (confidence: high)
-* **[SMPISD-MTPNet: Scene Semantic Prior-Assisted Infrared Ship Detection Using Multi-Task Perception Networks](https://arxiv.org/abs/2407.18487v1)** - [Code](https://github.com/greekinroma/kmndnet) (confidence: high)
-* **[Sparse Prior Is Not All You Need: When Differential Directionality Meets Saliency Coherence for Infrared Small Target Detection](https://arxiv.org/abs/2407.15369v1)** - [Code](https://github.com/grokcv/sdd) (confidence: high)
-* **[Lost in UNet: Improving Infrared Small Target Detection by Underappreciated Local Features](https://arxiv.org/abs/2406.13445v1)** - [Code](https://github.com/wuzhou-quan/hintu) (confidence: high)
-* **[MWIRSTD: A MWIR Small Target Detection Dataset](https://arxiv.org/abs/2406.08063v1)** - [Code](https://github.com/avinres/mwirstd) (confidence: high)
-* **[Triple-domain Feature Learning with Frequency-aware Memory Enhancement for Moving Infrared Small Target Detection](https://arxiv.org/abs/2406.06949v2)** - [Code](https://github.com/uestc-nnlab/tridos) (confidence: high)
-* **[Multi-Scale Direction-Aware Network for Infrared Small Target Detection](https://arxiv.org/abs/2406.02037v4)** - [Code](https://github.com/yuchuang1205/msda-net) (confidence: high)
-* **[Diff-Mosaic: Augmenting Realistic Representations in Infrared Small Target Detection via Diffusion Prior](https://arxiv.org/abs/2406.00632v1)** - [Code](https://github.com/yupeilin2388/diff-mosaic) (confidence: high)
-* **[Infrared Small Target Detection with Scale and Location Sensitivity](https://arxiv.org/abs/2403.19366v1)** - [Code](https://github.com/ying-fu/mshnet) (confidence: high)
-* **[HCF-Net: Hierarchical Context Fusion Network for Infrared Small Object Detection](https://arxiv.org/abs/2403.10778v1)** - [Code](https://github.com/zhengshuchen/hcfnet) (confidence: high)
-* **[Mitigate Target-level Insensitivity of Infrared Small Target Detection via Posterior Distribution Modeling](https://arxiv.org/abs/2403.08380v1)** - [Code](https://github.com/li-haoqing/irstd-diff) (confidence: high)
-* **[SIRST-5K: Exploring Massive Negatives Synthesis with Self-supervised Learning for Robust Infrared Small Target Detection](https://arxiv.org/abs/2403.05416v1)** - [Code](https://github.com/luy0222/sirst-5k) (confidence: high)
-* **[Exploring Hyperspectral Anomaly Detection with Human Vision: A Small Target Aware Detector](https://arxiv.org/abs/2401.01093v1)** - [Code](https://github.com/majitao-xd/stad-had) (confidence: high)
-* **[Improved Dense Nested Attention Network Based on Transformer for Infrared Small Target Detection](https://arxiv.org/abs/2311.08747v3)** - [Code](https://github.com/edwardbao1006/bit\_sirst) (confidence: high)
-* **[Click on Mask: A Labor-efficient Annotation Framework with Level Set for Infrared Small Target Detection](https://arxiv.org/abs/2310.12562v1)** - [Code](https://github.com/li-haoqing/com) (confidence: high)
-* **[ILNet: Low-level Matters for Salient Infrared Small Target Detection](https://arxiv.org/abs/2309.13646v1)** - [Code](https://github.com/li-haoqing/ilnet) (confidence: high)
-* **[Enhancing Infrared Small Target Detection Robustness with Bi-Level Adversarial Framework](https://arxiv.org/abs/2309.01099v1)** - [Code](https://github.com/liuzhu-cv/balistd) (confidence: high)
-* **[Unsupervised Adversarial Detection without Extra Model: Training Loss Should Change](https://arxiv.org/abs/2308.03243v1)** - [Code](https://github.com/cyclebooster/unsupervised-adversarial-detection-without-extra-model) (confidence: high)
-* **[EFLNet: Enhancing Feature Learning for Infrared Small Target Detection](https://arxiv.org/abs/2307.14723v2)** - [Code](https://github.com/yangbo0411/infrared-small-target) (confidence: high)
-* **[Object-aware Gaze Target Detection](https://arxiv.org/abs/2307.09662v2)** - [Code](https://github.com/francescotonini/object-aware-gaze-target-detection) (confidence: high)
-* **[Monte Carlo Linear Clustering with Single-Point Supervision is Enough for Infrared Small Target Detection](https://arxiv.org/abs/2304.04442v1)** - [Code](https://github.com/yeren123455/sirst-single-point-supervision) (confidence: high)
-* **[Mapping Degeneration Meets Label Evolution: Learning Infrared Small Target Detection with Single Point Supervision](https://arxiv.org/abs/2304.01484v3)** - [Code](https://github.com/xinyiying/lesps) (confidence: high)
-* **[ABC: Attention with Bilinear Correlation for Infrared Small Target Detection](https://arxiv.org/abs/2303.10321v1)** - [Code](https://github.com/panpeiwen/abc) (confidence: high)
-* **[Underwater target detection based on improved YOLOv7](https://arxiv.org/abs/2302.06939v1)** - [Code](https://github.com/nzwang/yolov7-ac) (confidence: high)
-* **[Local Contrast and Global Contextual Information Make Infrared Small Object Salient Again](https://arxiv.org/abs/2301.12093v3)** - [Code](https://github.com/wcyjerry/basicisos) (confidence: medium)
-* **[One-Stage Cascade Refinement Networks for Infrared Small Target Detection](https://arxiv.org/abs/2212.08472v2)** - [Code](https://github.com/yimiandai/open-deepinfrared) (confidence: high)
-* **[Mul-GAD: a semi-supervised graph anomaly detection framework via aggregating multi-view information](https://arxiv.org/abs/2212.05478v1)** - [Code](https://github.com/liuyishoua/mul-graph-fusion) (confidence: high)
-* **[UIU-Net: U-Net in U-Net for Infrared Small Object Detection](https://arxiv.org/abs/2212.00968v1)** - [Code](https://github.com/danfenghong/ieee_tip_uiu-net) (confidence: high)
-* **[Table Detection in the Wild: A Novel Diverse Table Detection Dataset and Method](https://arxiv.org/abs/2209.09207v2)** - [Code](https://huggingface.co/datasets/n3011) (confidence: high)
-* **[A Multi-task Framework for Infrared Small Target Detection and Segmentation](https://arxiv.org/abs/2206.06923v1)** - [Code](https://github.com/chenastron/mtunet) (confidence: high)
-* **[Multitask AET with Orthogonal Tangent Regularity for Dark Object Detection](https://arxiv.org/abs/2205.03346v1)** - [Code](https://github.com/cuiziteng/maet) (confidence: high)
-* **[Trustworthy Anomaly Detection: A Survey](https://arxiv.org/abs/2202.07787v1)** - [Code](https://github.com/yuan-shuhan/trustworthy-anomaly-detection-papers) (confidence: high)
-* **[Real-Time Seizure Detection using EEG: A Comprehensive Comparison of Recent Approaches under a Realistic Setting](https://arxiv.org/abs/2201.08780v2)** - [Code](https://github.com/aitrics/eeg_real_time_seizure_detection) (confidence: high)
-* **[Local Motion and Contrast Priors Driven Deep Network for Infrared Small Target Super-Resolution](https://arxiv.org/abs/2201.01014v5)** - [Code](https://github.com/xinyiying/mocopnet) (confidence: medium)
-* **[BEVDet: High-performance Multi-camera 3D Object Detection in Bird-Eye-View](https://arxiv.org/abs/2112.11790v3)** - [Code](https://github.com/huangjunjie2017/bevdet) (confidence: high)
-* **[AGPCNet: Attention-Guided Pyramid Context Networks for Infrared Small Target Detection](https://arxiv.org/abs/2111.03580v1)** - [Code](https://github.com/tianfang-zhang/agpcnet) (confidence: high)
-* **[A Survey of Self-Supervised and Few-Shot Object Detection](https://arxiv.org/abs/2110.14711v3)** - [Code](https://github.com/gabrielhuang/awesome-few-shot-object-detection) (confidence: high)
-* **[Non-Convex Tensor Low-Rank Approximation for Infrared Small Target Detection](https://arxiv.org/abs/2105.14974v2)** - [Code](https://github.com/liuting20a/asttv-ntla) (confidence: high)
-* **[TJU-DHD: A Diverse High-Resolution Dataset for Object Detection](https://arxiv.org/abs/2011.09170v1)** - [Code](https://github.com/tjubiit/tju-dhd) (confidence: high)
-* **[RGBT Salient Object Detection: A Large-scale Dataset and Benchmark](https://arxiv.org/abs/2007.03262v6)** - [Code](https://github.com/lz118/rgbt-salient-object-detection) (confidence: high)
-* **[Large Scale Open-Set Deep Logo Detection](https://arxiv.org/abs/1911.07440v4)** - [Code](https://github.com/mubastan/osld) (confidence: high)
-* **[Agnostic Lane Detection](https://arxiv.org/abs/1905.03704v1)** - [Code](https://github.com/cardwing/codes-for-lane-detection) (confidence: high)
-* **[Towards Pedestrian Detection Using RetinaNet in ECCV 2018 Wider Pedestrian Detection Challenge](https://arxiv.org/abs/1902.01031v1)** - [Code](https://github.com/miltonbd/eccv_2018_pedestrian_detection_challenege) (confidence: high)
+* **[DinoAtten3D: Slice-Level Attention Aggregation of DinoV2 for 3D Brain MRI Anomaly Classification](https://arxiv.org/abs/2509.12512v1)** - [Code](https://github.com/rafsani/dinoatten3d) (confidence: high)
+* **[Objectness Similarity: Capturing Object-Level Fidelity in 3D Scene Evaluation](https://arxiv.org/abs/2509.09143v1)** - [Code](https://github.com/objectness-similarity/osim) (confidence: high)
+* **[SALAD -- Semantics-Aware Logical Anomaly Detection](https://arxiv.org/abs/2509.02101v1)** - [Code](https://github.com/maticfuc/salad) (confidence: high)
+* **[Toward Socially Aware Vision-Language Models: Evaluating Cultural Competence Through Multimodal Story Generation](https://arxiv.org/abs/2508.16762v1)** - [Code](https://github.com/arkamukherjee0/mmcultural) (confidence: medium)
+* **[Normal and Abnormal Pathology Knowledge-Augmented Vision-Language Model for Anomaly Detection in Pathology Images](https://arxiv.org/abs/2508.15256v2)** - [Code](https://github.com/quiil/iccv2025_ano-navila) (confidence: high)
+* **[Automated Model Evaluation for Object Detection via Prediction Consistency and Reliability](https://arxiv.org/abs/2508.12082v2)** - [Code](https://github.com/yonseiml/autoeval-det) (confidence: high)
+* **[Hybrid Generative Fusion for Efficient and Privacy-Preserving Face Recognition Dataset Generation](https://arxiv.org/abs/2508.10672v2)** - [Code](https://github.com/ferry-li/datacv_fr) (confidence: high)
+* **[UniConvNet: Expanding Effective Receptive Field while Maintaining Asymptotically Gaussian Distribution for ConvNets of Any Scale](https://arxiv.org/abs/2508.09000v1)** - [Code](https://github.com/ai-paperwithcode/uniconvnet) (confidence: medium)
+* **[Revisiting Efficient Semantic Segmentation: Learning Offsets for Better Spatial and Class Feature Alignment](https://arxiv.org/abs/2508.08811v1)** - [Code](https://github.com/hvision-nku/offseg) (confidence: medium)
 <!-- END CLASSIFICATION_PAPERS -->
 
 ## 🔄 Image Registration
@@ -719,14 +647,25 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 *This list is automatically generated. See any issues? Please open a pull request!*
 
 <!-- BEGIN IMAGE_REGISTRATION_PAPERS -->
-* **[MI-DETR: A Strong Baseline for Moving Infrared Small Target Detection with Bio-Inspired Motion Integration](https://arxiv.org/abs/2603.05071v1)** - [Code](https://github.com/nliu-25/mi-detr) (confidence: medium)
-* **[Rethinking Infrared Small Target Detection: A Foundation-Driven Efficient Paradigm](https://arxiv.org/abs/2512.05511v1)** - [Code](https://github.com/yuchuang1205/fdep-framework) (confidence: medium)
-* **[Ivan-ISTD: Rethinking Cross-domain Heteroscedastic Noise Perturbations in Infrared Small Target Detection](https://arxiv.org/abs/2510.12241v1)** - [Code](https://github.com/nanjin1/ivan-istd) (confidence: medium)
-* **[HyperTea: A Hypergraph-based Temporal Enhancement and Alignment Network for Moving Infrared Small Target Detection](https://arxiv.org/abs/2508.10678v1)** - [Code](https://github.com/lurenjia-lrj/hypertea) (confidence: high)
-* **[SeqCSIST: Sequential Closely-Spaced Infrared Small Target Unmixing](https://arxiv.org/abs/2507.09556v1)** - [Code](https://github.com/grokcv/seqcsist) (confidence: high)
-* **[Rethinking Generalizable Infrared Small Target Detection: A Real-scene Benchmark and Cross-view Representation Learning](https://arxiv.org/abs/2504.16487v1)** - [Code](https://github.com/luy0222/realscene-istd) (confidence: medium)
-* **[Infrared Small Target Detection in Satellite Videos: A New Dataset and A Novel Recurrent Feature Refinement Framework](https://arxiv.org/abs/2409.12448v3)** - [Code](https://github.com/xinyiying/rfr) (confidence: high)
-* **[Local Motion and Contrast Priors Driven Deep Network for Infrared Small Target Super-Resolution](https://arxiv.org/abs/2201.01014v5)** - [Code](https://github.com/xinyiying/mocopnet) (confidence: medium)
+* **[Towards Zero-Shot Point Cloud Registration Across Diverse Scales, Scenes, and Sensor Setups](https://arxiv.org/abs/2601.02759v1)** - [Code](https://github.com/mit-spark/buffer-x) (confidence: high)
+* **[GDKVM: Echocardiography Video Segmentation via Spatiotemporal Key-Value Memory with Gated Delta Rule](https://arxiv.org/abs/2512.10252v1)** - [Code](https://github.com/wangrui2025/gdkvm) (confidence: medium)
+* **[Exploiting Domain Properties in Language-Driven Domain Generalization for Semantic Segmentation](https://arxiv.org/abs/2512.03508v2)** - [Code](https://github.com/jone1222/dpmformer) (confidence: medium)
+* **[MINDiff: Mask-Integrated Negative Attention for Controlling Overfitting in Text-to-Image Personalization](https://arxiv.org/abs/2511.17888v1)** - [Code](https://github.com/seuleepy/mindiff) (confidence: medium)
+* **[Controllable-LPMoE: Adapting to Challenging Object Segmentation via Dynamic Local Priors from Mixture-of-Experts](https://arxiv.org/abs/2510.21114v1)** - [Code](https://github.com/csysi/controllable-lpmoe) (confidence: medium)
+* **[Stroke2Sketch: Harnessing Stroke Attributes for Training-Free Sketch Generation](https://arxiv.org/abs/2510.16319v1)** - [Code](https://github.com/rane7/stroke2sketch) (confidence: medium)
+* **[Spatial Preference Rewarding for MLLMs Spatial Understanding](https://arxiv.org/abs/2510.14374v1)** - [Code](https://github.com/hanqiu-hq/spr) (confidence: medium)
+* **[Hybrid-grained Feature Aggregation with Coarse-to-fine Language Guidance for Self-supervised Monocular Depth Estimation](https://arxiv.org/abs/2510.09320v1)** - [Code](https://github.com/zhangwenyao1/hybrid-depth) (confidence: medium)
+* **[IMG: Calibrating Diffusion Models via Implicit Multimodal Guidance](https://arxiv.org/abs/2509.26231v1)** - [Code](https://github.com/shi-labs/img-multimodal-diffusion-alignment) (confidence: medium)
+* **[MedVSR: Medical Video Super-Resolution with Cross State-Space Propagation](https://arxiv.org/abs/2509.21265v2)** - [Code](https://github.com/cuhk-aim-group/medvsr) (confidence: medium)
+* **[From Prompt to Progression: Taming Video Diffusion Models for Seamless Attribute Transition](https://arxiv.org/abs/2509.19690v1)** - [Code](https://github.com/lynn-ling-lo/prompt2progression) (confidence: medium)
+* **[Multi-View Slot Attention Using Paraphrased Texts for Face Anti-Spoofing](https://arxiv.org/abs/2509.06336v2)** - [Code](https://github.com/elune001/mvp-fas) (confidence: medium)
+* **[Plug-in Feedback Self-adaptive Attention in CLIP for Training-free Open-Vocabulary Segmentation](https://arxiv.org/abs/2508.20265v1)** - [Code](https://github.com/chi-chi-zx/fsa) (confidence: medium)
+* **[Toward Socially Aware Vision-Language Models: Evaluating Cultural Competence Through Multimodal Story Generation](https://arxiv.org/abs/2508.16762v1)** - [Code](https://github.com/arkamukherjee0/mmcultural) (confidence: medium)
+* **[MUSE: Multi-Subject Unified Synthesis via Explicit Layout Semantic Expansion](https://arxiv.org/abs/2508.14440v1)** - [Code](https://github.com/pf0607/muse) (confidence: medium)
+* **[Beyond Simple Edits: Composed Video Retrieval with Dense Modifications](https://arxiv.org/abs/2508.14039v1)** - [Code](https://github.com/omkarthawakar/bse-covr) (confidence: medium)
+* **[Backdooring Self-Supervised Contrastive Learning by Noisy Alignment](https://arxiv.org/abs/2508.14015v1)** - [Code](https://github.com/jsrdcht/noisy-alignment) (confidence: high)
+* **[DictAS: A Framework for Class-Generalizable Few-Shot Anomaly Segmentation via Dictionary Lookup](https://arxiv.org/abs/2508.13560v2)** - [Code](https://github.com/xiaozhen228/dictas) (confidence: medium)
+* **[Revisiting Efficient Semantic Segmentation: Learning Offsets for Better Spatial and Class Feature Alignment](https://arxiv.org/abs/2508.08811v1)** - [Code](https://github.com/hvision-nku/offseg) (confidence: high)
 <!-- END IMAGE_REGISTRATION_PAPERS -->
 
 ## 🔀 Domain Adaptation
@@ -734,12 +673,11 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 *This list is automatically generated. See any issues? Please open a pull request!*
 
 <!-- BEGIN DOMAIN_ADAPTATION_PAPERS -->
-* **[Rethinking Representations for Cross-Domain Infrared Small Target Detection: A Generalizable Perspective from the Frequency Domain](https://arxiv.org/abs/2604.01934v1)** - [Code](https://github.com/fuyimin96/s2cpnet) (confidence: high)
-* **[Ivan-ISTD: Rethinking Cross-domain Heteroscedastic Noise Perturbations in Infrared Small Target Detection](https://arxiv.org/abs/2510.12241v1)** - [Code](https://github.com/nanjin1/ivan-istd) (confidence: high)
-* **[SAMamba: Adaptive State Space Modeling with Hierarchical Vision for Infrared Small Target Detection](https://arxiv.org/abs/2505.23214v1)** - [Code](https://github.com/zhengshuchen/samamba) (confidence: medium)
-* **[Rethinking Generalizable Infrared Small Target Detection: A Real-scene Benchmark and Cross-view Representation Learning](https://arxiv.org/abs/2504.16487v1)** - [Code](https://github.com/luy0222/realscene-istd) (confidence: high)
-* **[Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation](https://arxiv.org/abs/2504.09480v1)** - [Code](https://github.com/better-chao/perceptual_abilities_evaluation) (confidence: medium)
-* **[Triple-domain Feature Learning with Frequency-aware Memory Enhancement for Moving Infrared Small Target Detection](https://arxiv.org/abs/2406.06949v2)** - [Code](https://github.com/uestc-nnlab/tridos) (confidence: medium)
+* **[Towards Zero-Shot Point Cloud Registration Across Diverse Scales, Scenes, and Sensor Setups](https://arxiv.org/abs/2601.02759v1)** - [Code](https://github.com/mit-spark/buffer-x) (confidence: medium)
+* **[Exploiting Domain Properties in Language-Driven Domain Generalization for Semantic Segmentation](https://arxiv.org/abs/2512.03508v2)** - [Code](https://github.com/jone1222/dpmformer) (confidence: high)
+* **[DeepShield: Fortifying Deepfake Video Detection with Local and Global Forgery Analysis](https://arxiv.org/abs/2510.25237v2)** - [Code](https://github.com/lijichang/deepshield) (confidence: medium)
+* **[Multi-View Slot Attention Using Paraphrased Texts for Face Anti-Spoofing](https://arxiv.org/abs/2509.06336v2)** - [Code](https://github.com/elune001/mvp-fas) (confidence: medium)
+* **[Generalizable Object Re-Identification via Visual In-Context Prompting](https://arxiv.org/abs/2508.21222v1)** - [Code](https://github.com/hzzone/vicp) (confidence: medium)
 <!-- END DOMAIN_ADAPTATION_PAPERS -->
 
 ## 🎨 Generative Models
@@ -747,18 +685,31 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 *This list is automatically generated. See any issues? Please open a pull request!*
 
 <!-- BEGIN GENERATIVE_MODELS_PAPERS -->
-* **[Point-to-Mask: From Arbitrary Point Annotations to Mask-Level Infrared Small Target Detection](https://arxiv.org/abs/2603.16257v1)** - [Code](https://github.com/gaoscience/point-to-mask) (confidence: medium)
-* **[Dynamic High-frequency Convolution for Infrared Small Target Detection](https://arxiv.org/abs/2602.02969v1)** - [Code](https://github.com/tinalrj/dhif) (confidence: medium)
-* **[Ivan-ISTD: Rethinking Cross-domain Heteroscedastic Noise Perturbations in Infrared Small Target Detection](https://arxiv.org/abs/2510.12241v1)** - [Code](https://github.com/nanjin1/ivan-istd) (confidence: medium)
-* **[Case Study: Fine-tuning Small Language Models for Accurate and Private CWE Detection in Python Code](https://arxiv.org/abs/2504.16584v1)** - [Code](https://huggingface.co/datasets/floxihunter) (confidence: medium) | [Code2](https://huggingface.co/floxihunter/codegen-mono-cwedetect)
-* **[MaDiNet: Mamba Diffusion Network for SAR Target Detection](https://arxiv.org/abs/2411.07500v1)** - [Code](https://github.com/joyezlearning/madinet) (confidence: high)
-* **[Neural Real-Time Recalibration for Infrared Multi-Camera Systems](https://arxiv.org/abs/2410.14505v1)** - [Code](https://github.com/theictlab/neural-recalibration) (confidence: medium)
-* **[Infrared Small Target Detection in Satellite Videos: A New Dataset and A Novel Recurrent Feature Refinement Framework](https://arxiv.org/abs/2409.12448v3)** - [Code](https://github.com/xinyiying/rfr) (confidence: medium)
-* **[Beyond Full Labels: Energy-Double-Guided Single-Point Prompt for Infrared Small Target Label Generation](https://arxiv.org/abs/2408.08191v5)** - [Code](https://github.com/xdfai/edgsp) (confidence: high)
-* **[Diff-Mosaic: Augmenting Realistic Representations in Infrared Small Target Detection via Diffusion Prior](https://arxiv.org/abs/2406.00632v1)** - [Code](https://github.com/yupeilin2388/diff-mosaic) (confidence: high)
-* **[Mitigate Target-level Insensitivity of Infrared Small Target Detection via Posterior Distribution Modeling](https://arxiv.org/abs/2403.08380v1)** - [Code](https://github.com/li-haoqing/irstd-diff) (confidence: high)
-* **[SIRST-5K: Exploring Massive Negatives Synthesis with Self-supervised Learning for Robust Infrared Small Target Detection](https://arxiv.org/abs/2403.05416v1)** - [Code](https://github.com/luy0222/sirst-5k) (confidence: high)
-* **[Enhancing Infrared Small Target Detection Robustness with Bi-Level Adversarial Framework](https://arxiv.org/abs/2309.01099v1)** - [Code](https://github.com/liuzhu-cv/balistd) (confidence: medium)
+* **[Attention to Neural Plagiarism: Diffusion Models Can Plagiarize Your Copyrighted Images!](https://arxiv.org/abs/2603.00150v1)** - [Code](https://github.com/zzzucf/neural-plagiarism) (confidence: high)
+* **[MINDiff: Mask-Integrated Negative Attention for Controlling Overfitting in Text-to-Image Personalization](https://arxiv.org/abs/2511.17888v1)** - [Code](https://github.com/seuleepy/mindiff) (confidence: medium)
+* **[Sketch-to-Layout: Sketch-Guided Multimodal Layout Generation](https://arxiv.org/abs/2510.27632v1)** - [Code](https://github.com/google-deepmind/sketch_to_layout) (confidence: high)
+* **[DeepShield: Fortifying Deepfake Video Detection with Local and Global Forgery Analysis](https://arxiv.org/abs/2510.25237v2)** - [Code](https://github.com/lijichang/deepshield) (confidence: high)
+* **[Stroke2Sketch: Harnessing Stroke Attributes for Training-Free Sketch Generation](https://arxiv.org/abs/2510.16319v1)** - [Code](https://github.com/rane7/stroke2sketch) (confidence: high)
+* **[Hierarchical Reasoning with Vision-Language Models for Incident Reports from Dashcam Videos](https://arxiv.org/abs/2510.12190v1)** - [Code](https://github.com/riron1206/kaggle-2coool-2nd-place-solution) (confidence: medium)
+* **[StyleKeeper: Prevent Content Leakage using Negative Visual Query Guidance](https://arxiv.org/abs/2510.06827v1)** - [Code](https://github.com/naver-ai/stylekeeper) (confidence: high)
+* **[ConceptSplit: Decoupled Multi-Concept Personalization of Diffusion Models via Token-wise Adaptation and Attention Disentanglement](https://arxiv.org/abs/2510.04668v1)** - [Code](https://github.com/ku-vgi/conceptsplit) (confidence: high)
+* **[IMG: Calibrating Diffusion Models via Implicit Multimodal Guidance](https://arxiv.org/abs/2509.26231v1)** - [Code](https://github.com/shi-labs/img-multimodal-diffusion-alignment) (confidence: high)
+* **[From Prompt to Progression: Taming Video Diffusion Models for Seamless Attribute Transition](https://arxiv.org/abs/2509.19690v1)** - [Code](https://github.com/lynn-ling-lo/prompt2progression) (confidence: high)
+* **[DACoN: DINO for Anime Paint Bucket Colorization with Any Number of Reference Images](https://arxiv.org/abs/2509.14685v2)** - [Code](https://github.com/kzmngt/dacon) (confidence: medium)
+* **[Objectness Similarity: Capturing Object-Level Fidelity in 3D Scene Evaluation](https://arxiv.org/abs/2509.09143v1)** - [Code](https://github.com/objectness-similarity/osim) (confidence: medium)
+* **[Discovering Divergent Representations between Text-to-Image Models](https://arxiv.org/abs/2509.08940v1)** - [Code](https://github.com/adobe-research/compcon) (confidence: high)
+* **[VQualA 2025 Challenge on Image Super-Resolution Generated Content Quality Assessment: Methods and Results](https://arxiv.org/abs/2509.06413v1)** - [Code](https://github.com/lighting-yxli/isrgen-qa) (confidence: high)
+* **[Towards More Diverse and Challenging Pre-training for Point Cloud Learning: Self-Supervised Cross Reconstruction with Decoupled Views](https://arxiv.org/abs/2509.01250v1)** - [Code](https://github.com/ahapbean/point-pqae) (confidence: high)
+* **[AutoQ-VIS: Improving Unsupervised Video Instance Segmentation via Automatic Quality Assessment](https://arxiv.org/abs/2508.19808v1)** - [Code](https://github.com/wcbup/autoq-vis) (confidence: medium)
+* **[Automated Feature Tracking for Real-Time Kinematic Analysis and Shape Estimation of Carbon Nanotube Growth](https://arxiv.org/abs/2508.19232v1)** - [Code](https://github.com/kavehsfv/vftrack) (confidence: medium)
+* **[Toward Socially Aware Vision-Language Models: Evaluating Cultural Competence Through Multimodal Story Generation](https://arxiv.org/abs/2508.16762v1)** - [Code](https://github.com/arkamukherjee0/mmcultural) (confidence: high)
+* **[CineScale: Free Lunch in High-Resolution Cinematic Visual Generation](https://arxiv.org/abs/2508.15774v1)** - [Code](https://github.com/eyeline-labs/cinescale) (confidence: high)
+* **[Controllable Latent Space Augmentation for Digital Pathology](https://arxiv.org/abs/2508.14588v1)** - [Code](https://github.com/mics-lab/histaug) (confidence: medium)
+* **[MUSE: Multi-Subject Unified Synthesis via Explicit Layout Semantic Expansion](https://arxiv.org/abs/2508.14440v1)** - [Code](https://github.com/pf0607/muse) (confidence: high)
+* **[WP-CLIP: Leveraging CLIP to Predict Wölfflin's Principles in Visual Art](https://arxiv.org/abs/2508.12668v1)** - [Code](https://github.com/abhijay9/wpclip) (confidence: medium)
+* **[Hybrid Generative Fusion for Efficient and Privacy-Preserving Face Recognition Dataset Generation](https://arxiv.org/abs/2508.10672v2)** - [Code](https://github.com/ferry-li/datacv_fr) (confidence: high)
+* **[Preacher: Paper-to-Video Agentic System](https://arxiv.org/abs/2508.09632v6)** - [Code](https://github.com/gen-verse/paper2video) (confidence: medium)
+* **[Preview WB-DH: Towards Whole Body Digital Human Bench for the Generation of Whole-body Talking Avatar Videos](https://arxiv.org/abs/2508.08891v1)** - [Code](https://github.com/deepreasonings/wholebodybenchmark) (confidence: high)
 <!-- END GENERATIVE_MODELS_PAPERS -->
 
 ## 📚 General
@@ -766,21 +717,46 @@ Contributions are welcome! While this list is automatically maintained by a bot 
 *This list is automatically generated. See any issues? Please open a pull request!*
 
 <!-- BEGIN GENERAL_PAPERS -->
-* **[What is the Role of Small Models in the LLM Era: A Survey](https://arxiv.org/abs/2409.06857v7)** - [Code](https://github.com/tigerchen52/role_of_small_models) (confidence: medium)
-* **[SimpleFusion: A Simple Fusion Framework for Infrared and Visible Images](https://arxiv.org/abs/2406.19055v1)** - [Code](https://github.com/hxwxss/simplefusion-a-simple-fusion-framework-for-infrared-and-visible-images) (confidence: medium)
-* **[Poisson multi-Bernoulli mixture filter with general target-generated measurements and arbitrary clutter](https://arxiv.org/abs/2210.12983v2)** - [Code](https://github.com/agarciafernandez/mtt) (confidence: medium) | [Code2](https://github.com/yuhsuansia/extented-target-pmbm-filter-independent-clutter-sources)
-* **[A Poisson multi-Bernoulli mixture filter for coexisting point and extended targets](https://arxiv.org/abs/2011.04464v2)** - [Code](https://github.com/agarciafernandez/coexisting-point-extended-target-pmbm-filter) (confidence: medium) | [Code2](https://github.com/yuhsuansia/coexisting-point-extended-target-pmbm-filter)
-* **[Extended target Poisson multi-Bernoulli mixture trackers based on sets of trajectories](https://arxiv.org/abs/1911.09025v1)** - [Code](https://github.com/yuhsuansia/extended-target-pmbm-tracker) (confidence: medium)
-* **[Target-Guided Open-Domain Conversation](https://arxiv.org/abs/1905.11553v2)** - [Code](https://github.com/squareroot3/target-guided-conversation) (confidence: medium)
+* **[FG-OrIU: Towards Better Forgetting via Feature-Gradient Orthogonality for Incremental Unlearning](https://arxiv.org/abs/2601.13578v1)** - [Code](https://github.com/raian08/fg-oriu) (confidence: medium)
+* **[Factorized Learning for Temporally Grounded Video-Language Models](https://arxiv.org/abs/2512.24097v1)** - [Code](https://github.com/nusnlp/d2vlm) (confidence: medium)
+* **[TRACE: Textual Reasoning for Affordance Coordinate Extraction](https://arxiv.org/abs/2511.01999v1)** - [Code](https://github.com/jink-ucla/trace) (confidence: medium)
+* **[Enhancing Adversarial Transferability by Balancing Exploration and Exploitation with Gradient-Guided Sampling](https://arxiv.org/abs/2511.00411v1)** - [Code](https://github.com/anuin-cat/ggs) (confidence: medium)
+* **[Understanding Multi-View Transformers](https://arxiv.org/abs/2510.24907v1)** - [Code](https://github.com/juliengaubil/und3rstand) (confidence: medium)
+* **[Enpowering Your Pansharpening Models with Generalizability: Unified Distribution is All You Need](https://arxiv.org/abs/2510.22217v1)** - [Code](https://github.com/yc-cui/unipan) (confidence: medium)
+* **[Group Inertial Poser: Multi-Person Pose and Global Translation from Sparse Inertial Sensors and Ultra-Wideband Ranging](https://arxiv.org/abs/2510.21654v1)** - [Code](https://github.com/eth-siplab/groupinertialposer) (confidence: medium)
+* **[HccePose(BF): Predicting Front & Back Surfaces to Construct Ultra-Dense 2D-3D Correspondences for Pose Estimation](https://arxiv.org/abs/2510.10177v2)** - [Code](https://github.com/wangyulin-seu/hccepose) (confidence: medium)
+* **[SpecGuard: Spectral Projection-based Advanced Invisible Watermarking](https://arxiv.org/abs/2510.07302v1)** - [Code](https://github.com/inzamamuldu/specguard_iccv_2025) (confidence: medium)
+* **[VideoMiner: Iteratively Grounding Key Frames of Hour-Long Videos via Tree-based Group Relative Policy Optimization](https://arxiv.org/abs/2510.06040v1)** - [Code](https://github.com/caoxinye/videominer) (confidence: medium)
+* **[Guiding Multimodal Large Language Models with Blind and Low Vision People Visual Questions for Proactive Visual Interpretations](https://arxiv.org/abs/2510.01576v1)** - [Code](https://github.com/rgonzalezp/guiding-multimodal-large-language-models-with-blind-and-low-vision-people-visual-questions) (confidence: medium)
+* **[A Multi-purpose Tracking Framework for Salmon Welfare Monitoring in Challenging Environments](https://arxiv.org/abs/2509.25969v1)** - [Code](https://github.com/espenbh/boostcomptrack) (confidence: medium)
+* **[LayerD: Decomposing Raster Graphic Designs into Layers](https://arxiv.org/abs/2509.25134v1)** - [Code](https://github.com/cyberagentailab/layerd) (confidence: medium)
+* **[PU-Gaussian: Point Cloud Upsampling using 3D Gaussian Representation](https://arxiv.org/abs/2509.20207v1)** - [Code](https://github.com/mvg-inatech/pu-gaussian) (confidence: medium)
+* **[PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction](https://arxiv.org/abs/2509.20022v1)** - [Code](https://github.com/manahilr/ps3) (confidence: medium)
+* **[Global Regulation and Excitation via Attention Tuning for Stereo Matching](https://arxiv.org/abs/2509.15891v1)** - [Code](https://github.com/jarvislee0423/great-stereo) (confidence: medium)
+* **[Depth AnyEvent: A Cross-Modal Distillation Paradigm for Event-Based Monocular Depth Estimation](https://arxiv.org/abs/2509.15224v1)** - [Code](https://github.com/bartn8/depthanyevent) (confidence: medium)
+* **[Building a General SimCLR Self-Supervised Foundation Model Across Neurological Diseases to Advance 3D Brain MRI Diagnoses](https://arxiv.org/abs/2509.10620v1)** - [Code](https://github.com/emilykaczmarek/3d-neuro-simclr) (confidence: medium)
+* **[FlowSeek: Optical Flow Made Easier with Depth Foundation Models and Motion Bases](https://arxiv.org/abs/2509.05297v1)** - [Code](https://github.com/mattpoggi/flowseek) (confidence: medium)
+* **[Robust Experts: the Effect of Adversarial Training on CNNs with Sparse Mixture-of-Experts Layers](https://arxiv.org/abs/2509.05086v1)** - [Code](https://github.com/kastel-mobilitylab/robust-sparse-moes) (confidence: medium)
+* **[LUT-Fuse: Towards Extremely Fast Infrared and Visible Image Fusion via Distillation to Learnable Look-Up Tables](https://arxiv.org/abs/2509.00346v1)** - [Code](https://github.com/zyb5/lut-fuse) (confidence: medium)
+* **[GCAV: A Global Concept Activation Vector Framework for Cross-Layer Consistency in Interpretability](https://arxiv.org/abs/2508.21197v2)** - [Code](https://github.com/zhenghao-he/gcav) (confidence: medium)
+* **[TemCoCo: Temporally Consistent Multi-modal Video Fusion with Visual-Semantic Collaboration](https://arxiv.org/abs/2508.17817v1)** - [Code](https://github.com/meiqi-gong/temcoco) (confidence: medium)
+* **[PersPose: 3D Human Pose Estimation with Perspective Encoding and Perspective Rotation](https://arxiv.org/abs/2508.17239v2)** - [Code](https://github.com/kenadamsjoseph/perspose) (confidence: medium)
+* **[Learning Point Cloud Representations with Pose Continuity for Depth-Based Category-Level 6D Object Pose Estimation](https://arxiv.org/abs/2508.14358v1)** - [Code](https://github.com/zhujunli1993/hrc-pose) (confidence: medium)
+* **[CHARM3R: Towards Unseen Camera Height Robust Monocular 3D Detector](https://arxiv.org/abs/2508.11185v1)** - [Code](https://github.com/abhi1kumar/charm3r) (confidence: medium)
+* **[Processing and acquisition traces in visual encoders: What does CLIP know about your camera?](https://arxiv.org/abs/2508.10637v2)** - [Code](https://github.com/ryan-caesar-ramos/visual-encoder-traces) (confidence: medium)
+* **[TRACE: Learning 3D Gaussian Physical Dynamics from Multi-view Videos](https://arxiv.org/abs/2508.09811v1)** - [Code](https://github.com/vlar-group/trace) (confidence: medium)
+* **[Harnessing Input-Adaptive Inference for Efficient VLN](https://arxiv.org/abs/2508.09262v1)** - [Code](https://github.com/secure-ai-systems-group/adaptive-vision-and-language-navigation) (confidence: medium)
+* **[Efficient Face Image Quality Assessment via Self-training and Knowledge Distillation](https://arxiv.org/abs/2507.15709v2)** - [Code](https://github.com/sunwei925/efficient-fiqa) (confidence: medium)
+* **[LENS: Multi-level Evaluation of Multimodal Reasoning with Large Language Models](https://arxiv.org/abs/2505.15616v1)** - [Code](https://github.com/lens4mllms/lens) (confidence: medium)
 <!-- END GENERAL_PAPERS -->
 
 ---
 
 **Repository Topics**: awesome, awesome-list, miccai, miccai2026, medical-imaging, deep-learning, computer-vision, segmentation, reconstruction, classification, medical-image-analysis, artificial-intelligence
 
-**Conference Scope**: neurips-2025
+**Conference Scope**: ICCV-2025
 **Discovery Mode**: strict
 
-**Last Updated**: 2026-05-08 11:20 UTC by GitHub Actions
+**Last Updated**: 2026-05-09 02:42 UTC by GitHub Actions
 
 **License**: Apache License 2.0
